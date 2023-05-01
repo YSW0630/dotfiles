@@ -5,11 +5,11 @@
 # setsid neofetch >| .nf
 nitch
 # maxfetch
+# fortune | cowsay -f tux | lolcat
 figlet "nala  replace  apt!"
 # linuxlogo -f -L 11
 # pokemon-colorscripts --random --no-title
 # colorscript random
-# figlet "Hello, World!" | lolcat
 export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
 export PATH=/home/justin/.nimble/bin:$PATH
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -18,7 +18,6 @@ export PATH=/home/justin/.nimble/bin:$PATH
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -31,7 +30,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="xiong-chiamiov-plus"
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME=
+# robbyrussell"
 # ZSH_THEME="bira"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="fino-time"
@@ -141,6 +141,7 @@ alias lzcpp="cd ~/workspace/CWorkspace/lazyCpp/"
 alias upd="sudo nala update"
 alias upg="sudo nala upgrade"
 alias appsort='gsettings set org.gnome.shell app-picker-layout "[]"'
+alias blur='sudo dpkg -i ~/MutterBlur/mutter-rounded/ubuntu/libmutter-10-0*.deb ~/MutterBlur/mutter-rounded/ubuntu/mutter-common*.deb && gjs MutterBlur/mutter-rounded-setting/dist/mutter_settings.js'
 # alias ls="logo-ls"
 # alias ls="colorls"
 
@@ -149,5 +150,8 @@ alias appsort='gsettings set org.gnome.shell app-picker-layout "[]"'
 
 # TheFuck eval
 eval $(thefuck --alias fuck)
+
+#Starship eval (a zsh prompt theme)
+# eval "$(starship init zsh)"
 
 [ -s "/home/justin/.scm_breeze/scm_breeze.sh" ] && source "/home/justin/.scm_breeze/scm_breeze.sh"
