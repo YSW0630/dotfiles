@@ -18,7 +18,7 @@ set ru
 set hls
 set is
 set cb=unnamed
-set gfn=Fixedsys:h25
+set gfn=Fixedsys
 set ts=4
 set sw=4
 set si
