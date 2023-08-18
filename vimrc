@@ -3,25 +3,21 @@ set ai
 set ci
 set si
 syntax on
+set ruler
+set mouse=a
 set cb=unnamed
 set t_Co=256
-set mouse=a
+set bg=dark
 set cursorline
 set hlsearch
 set incsearch
-set foldmethod=indent
-set nocompatible
 set nofoldenable
+set nocompatible
 set tabstop=2
 set shiftwidth=2
-set expandtab
-set ruler
+" set expandtab
+" set foldmethod=indent
 filetype indent on
-set langmenu=en_US
-let $LANG = 'en_US'
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-set bg=dark
 inoremap jk <Left><C-[>
 inoremap jj <Left><C-[>
 " inoremap { {}<Left>
