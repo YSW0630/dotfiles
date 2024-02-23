@@ -1,7 +1,7 @@
 try
   colorscheme dracula
 catch
-  colorscheme rom
+  colorscheme ron
 endtry
 
 set ai
