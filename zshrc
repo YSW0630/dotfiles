@@ -1,39 +1,47 @@
-# my config
+########################### my startup  ##############################
 
-#fast neofetch
-# cat .nf 2> /dev/null
-# setsid neofetch >| .nf
 nitch
-# maxfetch
+# uwufetch
+# pfetch
+# neofetch
 # fortune | cowsay -f tux | lolcat
-figlet "nala  replace  apt!"
-# linuxlogo -f -L 11
 # pokemon-colorscripts --random --no-title
 # colorscript random
-export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
-export PATH=/home/justin/.nimble/bin:$PATH
+ 
+########################## end startup ##############################
+
+
+########################## P10K config ##############################
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+########################## P10K config ##############################
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Enable colors and change prompt:
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="xiong-chiamiov-plus"
-# ZSH_THEME=
-# robbyrussell"
+# Enable colors and change prompt:
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME="bira"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="fino-time"
 # ZSH_THEME="random"
 
@@ -100,9 +108,16 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    # git-prompt
+    fzf
+    sudo
+    vi-mode
+    archlinux
     zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting
+    colored-man-pages
+    command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,7 +127,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-#export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -133,25 +148,39 @@ fi
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias fl="ranger"
+alias lf="ranger"
+alias p="sudo pacman"
+alias v="vim"
 alias nv="nvim"
 alias lv="lvim"
-alias bat="batcat"
-alias nub="cd ~/workspace/CWorkspace/noobcoder/"
-alias lzcpp="cd ~/workspace/CWorkspace/lazyCpp/"
-alias upd="sudo nala update"
-alias upg="sudo nala upgrade"
-alias appsort='gsettings set org.gnome.shell app-picker-layout "[]"'
-alias blur='sudo dpkg -i ~/MutterBlur/mutter-rounded/ubuntu/libmutter-10-0*.deb ~/MutterBlur/mutter-rounded/ubuntu/mutter-common*.deb && gjs MutterBlur/mutter-rounded-setting/dist/mutter_settings.js'
+alias tty-clock="tty-clock -ctC 6"
+alias pdf="zathura"
+alias wth="curl wttr.in"
+alias paint="kolourpaint"
+alias calcurse="VISUAL=vim calcurse"
+alias ptt="surf term.ptt.cc"
+# alias ptt="ssh bbsu@ptt.cc"
 # alias ls="logo-ls"
-# alias ls="colorls"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# yt-dlp
+alias ytmus="yt-dlp -f 'ba'"
+alias ytvid="yt-dlp -f mp4" # yt-dlp -S ext:mp4:m4a <URL> for hightest quality
 
+# picom
+alias start-picom="picom -b"
+alias stop-picom="killall picom"
+alias reload-picom="stop-picom && start-picom"
+
+# suckless
+alias Dwm="cd ~/suck/dwm/dwm_colored/"
+alias Dmen="cd ~/suck/dmenu"
+alias Surf="cd ~/suck/surf"
+alias Dwmb="cd ~/suck/blocks/dwmblocks_colored"
+alias Pth="cd ~/suck/patches"
+
+# Lazy wifi & bluetooth tui
+alias blth="bluetuith"  # cli : bluetoothctl
+alias wifi="nmtui"      # cli : nmcli
+ 
 # TheFuck eval
 eval $(thefuck --alias fuck)
-
-#Starship eval (a zsh prompt theme)
-# eval "$(starship init zsh)"
-
-[ -s "/home/justin/.scm_breeze/scm_breeze.sh" ] && source "/home/justin/.scm_breeze/scm_breeze.sh"
