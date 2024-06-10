@@ -1,0 +1,13 @@
+# This file locate in /etc/pacman.d/hooks/pacman.hook
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Run pkill command after pacman command
+When = PostTransaction
+Exec = /home/justin/scs/Kill_arch_pkg_disk.sh
