@@ -22,6 +22,8 @@ inoremap [ []<Left>
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
+inoremap "" "
+inoremap '' '
 
 autocmd filetype *   nnoremap <F8> :!clear<CR><CR>
 autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++20 % -o %:r<CR>
@@ -44,4 +46,10 @@ let g:clang_auto_select=1
 let g:clang_complete_copen=1
 let g:clang_close_preview=1
 set completeopt-=preview
+" ===============================================================================================================
+"
+" =================================== AutoComplPop VIM SCRIPT CONFIG ==========================================
+set complete+=kspell "use dictionary words with spell check"
+set completeopt+=menuone,longest
+set shortmess+=c
 " ===============================================================================================================
