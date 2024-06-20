@@ -1,6 +1,9 @@
 " set airline theme
 let g:airline_theme='luna'
 
+" let SuperTab choose reverse words
+let g:SuperTabDefaultCompletionType="<c-n>"
+
 " toggle NERDTree
 nnoremap <leader>e :NERDTreeToggle<cr>
 
