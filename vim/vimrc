@@ -56,3 +56,9 @@ inoremap jj <C-[><Right>
 if !exists('nvim') && !exists('vscode') && filereadable('/home/justin/.vim/MyVimConf.vim')
 	source /home/justin/.vim/MyVimConf.vim
 endif
+
+if isdirectory('/home/justin/.vim/vimundo')
+	" undo memory
+	set undofile
+	set undodir=/home/justin/.vim/vimundo
+endif
