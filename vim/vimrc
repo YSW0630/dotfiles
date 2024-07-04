@@ -1,7 +1,7 @@
 try
 	colorscheme sorbet
 catch
-	colorscheme zaibatsu
+	colorscheme default
 endtry
 
 " appearance
@@ -53,12 +53,16 @@ set showcmd
 inoremap jk <C-[><Right>
 inoremap jj <C-[><Right>
 
-if !exists('nvim') && !exists('vscode') && filereadable('/home/justin/.vim/MyVimConf.vim')
-	source /home/justin/.vim/MyVimConf.vim
-endif
+" undo memory
+set undofile
+set undodir=/home/pacfrog/.vim/vimundo/
 
-if isdirectory('/home/justin/.vim/vimundo')
-	" undo memory
-	set undofile
-	set undodir=/home/justin/.vim/vimundo
+" change cursor style
+let &t_EI = "\e[1 q"  " Normal mode  : block
+let &t_SI = "\e[5 q"  " Insert mode  : beam
+let &t_SR = "\e[3 q"  " Replace mode : underline
+autocmd VimEnter * silent! !echo -ne "\e[1 q"
+
+if !exists('nvim') && !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
+	source /home/pacfrog/.vim/MyVimConf.vim
 endif

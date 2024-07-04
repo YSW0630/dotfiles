@@ -52,6 +52,12 @@ inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
 
+" change cursor style
+let &t_EI = "\e[1 q"  " Normal mode  : block
+let &t_SI = "\e[5 q"  " Insert mode  : beam
+let &t_SR = "\e[3 q"  " Replace mode : underline
+autocmd VimEnter * silent! !echo -ne "\e[1 q"
+
 " about line number
 set nu
 augroup numbertoggle
