@@ -61,7 +61,7 @@ set undodir=/home/pacfrog/.vim/vimundo/
 let &t_EI = "\e[1 q"  " Normal mode  : block
 let &t_SI = "\e[5 q"  " Insert mode  : beam
 let &t_SR = "\e[3 q"  " Replace mode : underline
-autocmd VimEnter * silent! !echo -ne "\e[1 q"
+autocmd VimEnter * silent! !echo "\e[1 q"
 
 if !exists('nvim') && !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
 	source /home/pacfrog/.vim/MyVimConf.vim
