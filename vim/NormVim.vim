@@ -53,10 +53,16 @@ inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
 
 " change cursor style
-let &t_EI = "\e[1 q"  " Normal mode  : block
-let &t_SI = "\e[5 q"  " Insert mode  : beam
-let &t_SR = "\e[3 q"  " Replace mode : underline
-autocmd VimEnter * silent! !echo -ne "\e[1 q"
+" Ps = 0  -> blinking block.
+" Ps = 1  -> blinking block (default).
+" Ps = 2  -> steady block.
+" Ps = 3  -> blinking underline.
+" Ps = 4  -> steady underline.
+" Ps = 5  -> blinking bar (xterm).
+" Ps = 6  -> steady bar (xterm).
+let &t_EI = "\e[2 q"  " Normal mode  : block
+let &t_SI = "\e[6 q"  " Insert mode  : beam
+autocmd VimEnter * silent execute '!echo -ne "\e[2 q"' | redraw!
 
 " about line number
 set nu

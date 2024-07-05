@@ -1,10 +1,5 @@
 " set airline theme
-let g:airline_theme='deus'
-"let g:airline_theme='jet'
-"let g:airline_theme='luna'
-"let g:airline_theme='molokai'
-"let g:airline_theme='base16_seti'
-"let g:airline_theme='base16_dracula'
+let g:airline_theme='deus' " 'jet' 'luna' 'molokai' 'base16_seti' 'base16_dracula'
 
 " let SuperTab choose reverse words
 let g:SuperTabDefaultCompletionType="<c-n>"
@@ -24,11 +19,6 @@ let &t_8b = "\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mod
 set termguicolors
 
 " auto complete big parantheses 
-" inoremap " ""<Left>
-" inoremap ' ''<Left>
-" inoremap "" "
-" inoremap '' '
-" inoremap [ []<Left>
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
