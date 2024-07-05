@@ -7,4 +7,5 @@ This script uses sox to generate it's sounds, so make sure sox is somewhere in y
 
 by: https://github.com/stormdragon2976/irssi-sound
 
-make sure install ```sox``` in your system
+make sure install sox in your system
+ex. sudo pacman -S sox
