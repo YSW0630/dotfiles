@@ -1,6 +1,6 @@
 # FETCH
-pfetch
-# pokemon-colorscripts -r --no-title
+pokemon-colorscripts -r --no-title
+# pfetch
 # colorscript -r
 
 # Created by Zap installer
@@ -9,7 +9,8 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
 plug "zap-zsh/sudo"
-plug "zap-zsh/vim" # export VI_MODE_ESC_INSERT="jk"
+plug "zap-zsh/fzf"
+plug "jeffreytse/zsh-vi-mode" # plug "zap-zsh/vim" # export VI_MODE_ESC_INSERT="jk"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/completions"
 plug "zap-zsh/atmachine-prompt"
@@ -29,14 +30,15 @@ else
   export EDITOR='nvim'
 fi
 
-alias rm="rm -i"
-alias mv="mv -i"
+# My aliases
+# alias rm="rm -i"
+# alias mv="mv -i"
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias fl="ranger"
 alias p="sudo pacman"
 alias v="vim"
-alias V="vim --noplugin -u ~/.vim/NormVim.vim"
+alias V="vim --clean"
 alias nv="nvim"
 
 # TheFuck eval

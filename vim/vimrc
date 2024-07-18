@@ -67,7 +67,7 @@ set undodir=/home/pacfrog/.vim/vimundo/
 " Ps = 6  -> steady bar (xterm).
 let &t_EI = "\e[2 q"  " Normal mode  : block
 let &t_SI = "\e[6 q"  " Insert mode  : beam
-autocmd VimEnter * silent execute '!echo -ne "\e[2 q"' | redraw!
+let &t_SR = "\e[4 q"  " Replace mode : underline
 
 if !exists('nvim') && !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
 	source /home/pacfrog/.vim/MyVimConf.vim
