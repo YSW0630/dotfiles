@@ -57,6 +57,12 @@ inoremap jj <C-[><Right>
 set undofile
 set undodir=/home/pacfrog/.vim/vimundo/
 
+" shift-page up/down move line
+nnoremap <S-PageUp> :m-2<CR>
+nnoremap <S-PageDown> :m+<CR>
+inoremap <S-PageUp> <Esc>:m-2<CR>i
+inoremap <S-PageDown> <Esc>:m+<CR>i
+
 " change cursor style
 " Ps = 0  -> blinking block.
 " Ps = 1  -> blinking block (default).
