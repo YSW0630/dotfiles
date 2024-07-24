@@ -1,6 +1,6 @@
 # FETCH
-pokemon-colorscripts -r --no-title
-# pfetch
+pfetch
+# pokemon-colorscripts -r 1 --no-title
 # colorscript -r
 
 # Created by Zap installer
