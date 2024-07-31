@@ -53,6 +53,10 @@ set showcmd
 inoremap jk <C-[><Right>
 inoremap jj <C-[><Right>
 
+" set jk waiting time
+set timeout
+set timeoutlen=500
+
 " undo memory
 set undofile
 set undodir=/home/pacfrog/.vim/vimundo/
