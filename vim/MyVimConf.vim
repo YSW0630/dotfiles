@@ -14,6 +14,9 @@ nnoremap <leader>t :TagbarToggle<cr>
 let g:ale_enabled = 0
 nnoremap <leader>a :ALEToggle<cr>
 
+" toggle Clang Format
+nnoremap <leader>f :ClangFormat<cr>
+
 let &t_8f = "\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
 let &t_8b = "\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
 set termguicolors

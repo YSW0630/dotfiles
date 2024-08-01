@@ -36,6 +36,7 @@ fi
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias fl="ranger"
+alias sl="sl -e"
 alias p="sudo pacman"
 alias v="vim"
 alias V="vim --clean"
