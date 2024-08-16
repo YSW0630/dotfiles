@@ -1,9 +1,6 @@
 " set airline theme
 let g:airline_theme='deus' " 'jet' 'luna' 'molokai' 'base16_seti' 'base16_dracula'
 
-" let SuperTab choose reverse words
-let g:SuperTabDefaultCompletionType="<c-n>"
-
 " toggle NERDTree
 nnoremap <leader>e :NERDTreeToggle<cr>
 
@@ -16,6 +13,12 @@ nnoremap <leader>a :ALEToggle<cr>
 
 " toggle Clang Format
 nnoremap <leader>f :ClangFormat<cr>
+
+" toggle Indent Guide
+nnoremap <leader>i :IndentGuidesToggle<cr>
+
+" toggle mucomplete
+nnoremap <leader>c :MUcompleteAutoToggle<cr>
 
 let &t_8f = "\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
 let &t_8b = "\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
@@ -40,7 +43,17 @@ augroup END
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
 hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
 
-" =================================== CLANG-COMPLETE VIM SCRIPT CONFIG ==========================================
+" =================================== CLANG-COMPLETE & MU-COMPLETE VIM SCRIPT CONFIG ==========================================
+set noinfercase
+set complete+=kspell "use dictionary words with spell check"
+set completeopt-=preview "use <C-w>z or :pclose
+set completeopt+=menuone,noselect
+set shortmess+=c " Shut off completion messages
+set belloff+=ctrlg " Add only if Vim beeps during completion
+set pumheight=15
+let g:jedi#popup_on_dot=1
+let g:mucomplete#enable_auto_at_startup=1
+let g:mucomplete#completion_delay=0
 let g:clang_use_library=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
 let g:clang_auto_select=1
@@ -63,12 +76,4 @@ let g:clang_trailing_placeholder=1
 let g:clang_complete_optional_args_in_snippets=1
 " The single one that works with clang_complete
 let g:clang_snippets_engine='clang_complete'
-" ===============================================================================================================
-
-" =================================== AutoComplPop VIM SCRIPT CONFIG ==========================================
-set complete+=kspell "use dictionary words with spell check"
-set completeopt+=menuone,menu,longest
-"set completeopt-=preview
-set shortmess+=c
-set pumheight=15
 " ===============================================================================================================

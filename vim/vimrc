@@ -67,6 +67,9 @@ nnoremap <S-PageDown> :m+<CR>
 inoremap <S-PageUp> <Esc>:m-2<CR>i
 inoremap <S-PageDown> <Esc>:m+<CR>i
 
+" copy to end
+nnoremap Y y$
+
 " change cursor style
 " Ps = 0  -> blinking block.
 " Ps = 1  -> blinking block (default).
