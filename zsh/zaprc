@@ -23,6 +23,13 @@ plug "MichaelAquilina/zsh-you-should-use"
 autoload -Uz compinit
 compinit
 
+# redefine zvm_vi_yank
+zvm_vi_yank () {
+	zvm_yank
+	printf %s "${CUTBUFFER}" | xclip -sel c
+	zvm_exit_visual_mode
+}
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'

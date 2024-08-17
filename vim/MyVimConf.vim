@@ -51,7 +51,6 @@ set completeopt+=menuone,noselect
 set shortmess+=c " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
 set pumheight=15
-let g:jedi#popup_on_dot=1
 let g:mucomplete#enable_auto_at_startup=1
 let g:mucomplete#completion_delay=0
 let g:clang_use_library=1
