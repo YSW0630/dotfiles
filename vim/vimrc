@@ -40,6 +40,7 @@ set shiftwidth=2
 filetype on
 filetype indent on
 filetype plugin on
+filetype plugin indent on
 
 " wrap
 set wrap
@@ -69,6 +70,9 @@ inoremap <S-PageDown> <Esc>:m+<CR>i
 
 " copy to end
 nnoremap Y y$
+
+" remember the cursor postition last time
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")  | exe "normal! g'\"" | endif
 
 " change cursor style
 " Ps = 0  -> blinking block.

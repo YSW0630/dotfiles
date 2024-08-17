@@ -24,6 +24,9 @@ let &t_8f = "\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mod
 let &t_8b = "\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
 set termguicolors
 
+" toggle MarkdownPreview
+nnoremap <leader>m :MarkdownPreviewToggle<cr>
+
 " auto complete big parantheses 
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
