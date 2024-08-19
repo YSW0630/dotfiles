@@ -1,31 +1,39 @@
+" set molokai theme
+let g:molokai_original=1
+let g:rehash256=1
+
 " set airline theme
 let g:airline_theme='deus' " 'jet' 'luna' 'molokai' 'base16_seti' 'base16_dracula'
 
 " toggle NERDTree
 nnoremap <leader>e :NERDTreeToggle<cr>
 
-" toggle tagbar
+" toggle UndoTree
+nnoremap <leader>T :UndotreeToggle<cr>
+
+" toggle Tagbar
 nnoremap <leader>t :TagbarToggle<cr>
 
 " toggle Ale
-let g:ale_enabled = 0
+let g:ale_enabled=0
 nnoremap <leader>a :ALEToggle<cr>
 
 " toggle Clang Format
 nnoremap <leader>f :ClangFormat<cr>
 
 " toggle Indent Guide
+let g:indent_guides_enable_on_vim_startup=1
 nnoremap <leader>i :IndentGuidesToggle<cr>
 
-" toggle mucomplete
+" toggle MUcomplete
 nnoremap <leader>c :MUcompleteAutoToggle<cr>
-
-let &t_8f = "\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
-let &t_8b = "\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
-set termguicolors
 
 " toggle MarkdownPreview
 nnoremap <leader>m :MarkdownPreviewToggle<cr>
+
+let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
+let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
+set termguicolors
 
 " auto complete big parantheses 
 inoremap { {}<Left>

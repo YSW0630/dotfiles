@@ -1,5 +1,5 @@
 try
-	colorscheme sorbet
+	colorscheme molokai
 catch
 	colorscheme default
 endtry
@@ -60,7 +60,7 @@ set timeoutlen=500
 
 " undo memory
 set undofile
-set undodir=/home/pacfrog/.vim/vimundo/
+set undodir=~/.vim/vimundo/
 
 " shift-page up/down move line
 nnoremap <S-PageUp> :m-2<CR>
