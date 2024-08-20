@@ -23,7 +23,7 @@ plug "MichaelAquilina/zsh-you-should-use"
 autoload -Uz compinit
 compinit
 
-# redefine zvm_vi_yank
+# Redefine zvm_vi_yank
 zvm_vi_yank () {
 	zvm_yank
 	printf %s "${CUTBUFFER}" | xclip -sel c

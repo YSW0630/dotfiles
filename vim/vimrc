@@ -15,6 +15,7 @@ set ci
 set si
 set ruler
 set mouse=a
+set wildmenu
 set cb=unnamedplus
 set t_Co=256
 set bg=dark
