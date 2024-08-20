@@ -1,9 +1,15 @@
+"   __  ___    _   ___       _____          ___
+"   /  |/  /_ _| | / (_)_ _  / ___/__  ___  / _/
+"  / /|_/ / // / |/ / /  ' \/ /__/ _ \/ _ \/ _/ 
+" /_/  /_/\_, /|___/_/_/_/_/\___/\___/_//_/_/   
+"        /___/                                  
+
 " set molokai theme
 let g:molokai_original=1
 let g:rehash256=1
 
 " set airline theme
-let g:airline_theme='deus' " 'jet' 'luna' 'molokai' 'base16_seti' 'base16_dracula'
+let g:airline_theme='deus' " 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
 
 " toggle NERDTree
 nnoremap <leader>e :NERDTreeToggle<cr>
@@ -16,6 +22,7 @@ nnoremap <leader>t :TagbarToggle<cr>
 
 " toggle Ale
 let g:ale_enabled=0
+let g:ale_completion_enabled=1
 nnoremap <leader>a :ALEToggle<cr>
 
 " toggle Clang Format
