@@ -69,7 +69,7 @@ let g:ale_linters = {
 \   'c':      ['clang', 'gcc'],
 \   'cpp':    ['clang', 'gcc'],
 \   'python': ['flake8', 'pylint'],
-\   'rust':		['rustc', 'cargo'],
+\   'rust':		['analyzer'],
 \   'java':		['javac', 'checkstyle'],
 \}
 
@@ -79,7 +79,7 @@ let g:ale_fixers = {
 \   'cpp':		['clang-format'],
 \   'python': ['autopep8', 'black'],
 \   'rust':		['rustfmt'],
-\   'java':		['google-java-format'],
+\   'java':		['google_java_format'],
 \}
 
 " Keybinds
