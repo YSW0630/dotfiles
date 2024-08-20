@@ -1,15 +1,15 @@
 "   __  ___    _   ___       _____          ___
 "   /  |/  /_ _| | / (_)_ _  / ___/__  ___  / _/
-"  / /|_/ / // / |/ / /  ' \/ /__/ _ \/ _ \/ _/ 
-" /_/  /_/\_, /|___/_/_/_/_/\___/\___/_//_/_/   
-"        /___/                                  
+"  / /|_/ / // / |/ / /  ' \/ /__/ _ \/ _ \/ _/
+" /_/  /_/\_, /|___/_/_/_/_/\___/\___/_//_/_/
+"        /___/
 
 " set molokai theme
 let g:molokai_original=1
 let g:rehash256=1
 
 " set airline theme
-let g:airline_theme='deus' " 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
+let g:airline_theme='deus' " 'term' 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
 
 " toggle NERDTree
 nmap <leader>e :NERDTreeToggle<cr>
@@ -37,7 +37,7 @@ let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
 let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
 set termguicolors
 
-" auto complete big parantheses 
+" auto complete big parantheses
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
@@ -62,7 +62,9 @@ let g:ale_completion_enabled=1	      	" Enable ALE's completion feature
 let g:ale_linters_explicit=0	      		" Only use linters that are explicitly enabled
 let g:ale_lint_on_enter=0			      	  " Do not run linting when opening a file
 let g:ale_fix_on_save=0				        	" Automatically fix errors on save
-let g:ale_lint_on_text_changed='normal' " Never run linting when editing the file	
+let g:ale_lint_on_text_changed='normal' " Never run linting when editing the file
+"let g:ale_sign_error=' '
+"let g:ale_sign_warning=' '
 
 " List of linters
 let g:ale_linters = {
@@ -75,6 +77,7 @@ let g:ale_linters = {
 
 " List of fixer
 let g:ale_fixers = {
+\   '*':      ['remove_trailing_lines', 'trim_whitespace'],
 \   'c':	  	['clang-format'],
 \   'cpp':		['clang-format'],
 \   'python': ['autopep8', 'black'],
