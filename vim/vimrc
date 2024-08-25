@@ -76,7 +76,7 @@ inoremap <S-PageDown> <Esc>:m+<CR>i
 " copy to end
 nnoremap Y y$
 
-" remember the cursor postition last time
+" remember the cursor position last time
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")  | exe "normal! g'\"" | endif
 
 " change cursor style
