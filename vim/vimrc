@@ -61,7 +61,7 @@ inoremap jj <C-[><Right>
 
 " set jk waiting time
 set timeout
-set timeoutlen=500
+set timeoutlen=400
 
 " undo memory
 set undofile

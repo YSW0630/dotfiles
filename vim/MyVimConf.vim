@@ -4,6 +4,27 @@
 " /_/  /_/\_, /|___/_/_/_/_/\___/\___/_//_/_/
 "        /___/
 
+" Start some plugins
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes' 
+Plug 'dense-analysis/ale'
+Plug 'xavierd/clang_complete'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
+Plug 'rust-lang/rust.vim'
+Plug 'mbbill/undotree'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/vim-indent-guides'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'davidhalter/jedi-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn installed
+call plug#end()
+
 " set molokai theme
 let g:molokai_original=1
 let g:rehash256=1
@@ -57,14 +78,20 @@ hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
 hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
 
 " ====================================================== VIM-ALE CONFIG =======================================================
-let g:ale_sign_column_always=1	      	" Always show ALE sign column
+
+" === GLOBAL ===
 let g:ale_completion_enabled=1	      	" Enable ALE's completion feature
+let g:ale_sign_column_always=0	      	" Always show ALE sign column
 let g:ale_linters_explicit=0	      		" Only use linters that are explicitly enabled
 let g:ale_lint_on_enter=0			      	  " Do not run linting when opening a file
 let g:ale_fix_on_save=0				        	" Automatically fix errors on save
 let g:ale_lint_on_text_changed='normal' " Never run linting when editing the file
 "let g:ale_sign_error=' '
 "let g:ale_sign_warning=' '
+
+" C/CPP Options
+let g:ale_c_cc_options='-std=c11 -Wall -Wextra -Werror -Wno-unused-variable'
+let g:ale_cpp_cc_options='-std=c++20 -Wall -Wextra -Werror -Wno-unused-variable'
 
 " List of linters
 let g:ale_linters = {
@@ -77,12 +104,12 @@ let g:ale_linters = {
 
 " List of fixer
 let g:ale_fixers = {
-\   '*':      ['remove_trailing_lines', 'trim_whitespace'],
 \   'c':	  	['clang-format'],
 \   'cpp':		['clang-format'],
 \   'python': ['autopep8', 'black'],
 \   'rust':		['rustfmt'],
 \   'java':		['google_java_format'],
+\   '*':      ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
 " Keybinds
@@ -104,6 +131,7 @@ let g:mucomplete#enable_auto_at_startup=1
 let g:mucomplete#completion_delay=0
 let g:clang_use_library=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
+let g:clang_user_options='-std=c++20'
 let g:clang_auto_select=1
 let g:clang_close_preview=1
 
