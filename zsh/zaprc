@@ -1,7 +1,11 @@
-# FETCH
-pfetch
+# Source some dot zsh file
+autoload -U colors && colors # Enable color support in Zsh
+source ~/gitroot/ohmyzsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh # Load the colored-man-pages plugin
+
+# MY FETCH
 # pokemon-colorscripts -r 1 --no-title
 # colorscript -r
+pfetch
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
@@ -10,10 +14,10 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
 plug "zap-zsh/sudo"
 plug "zap-zsh/fzf"
-plug "jeffreytse/zsh-vi-mode" # plug "zap-zsh/vim" # export VI_MODE_ESC_INSERT="jk"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/completions"
 plug "zap-zsh/atmachine-prompt"
+plug "YSW0630/zsh-vi-mode" # plug "zap-zsh/vim" # export VI_MODE_ESC_INSERT="jk"
 plug "hlissner/zsh-autopair"
 plug "Aloxaf/fzf-tab"
 plug "chivalryq/git-alias"
@@ -22,13 +26,6 @@ plug "MichaelAquilina/zsh-you-should-use"
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
-
-# Redefine zvm_vi_yank
-zvm_vi_yank () {
-	zvm_yank
-	printf %s "${CUTBUFFER}" | xclip -sel c
-	zvm_exit_visual_mode
-}
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
