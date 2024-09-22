@@ -47,7 +47,7 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
-" wrap
+" wrap (gj, gk keybinds)
 set wrap
 set linebreak
 
@@ -76,7 +76,7 @@ inoremap <S-PageDown> <Esc>:m+<CR>i
 " copy to end
 nnoremap Y y$
 
-" remember the cursor position last time
+" remember the cursor postition last time
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")  | exe "normal! g'\"" | endif
 
 " change cursor style

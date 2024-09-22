@@ -21,8 +21,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/vim-indent-guides'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'davidhalter/jedi-vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn installed
+Plug 'davidhalter/jedi-vim' " If python-jedi has installed
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn have installed
 call plug#end()
 
 " set molokai theme
@@ -60,13 +60,18 @@ set termguicolors
 
 " auto complete big parantheses
 inoremap { {}<Left>
-inoremap {<CR> {<CR>}<Esc>O
+inoremap {<cr> {<cr>}<Esc>O
 inoremap {{ {
 
-autocmd filetype *   nmap <F8> :!clear<CR><CR>
-autocmd filetype cpp nmap <F9> :w <bar> !clang++ -std=c++20 % -o %:r<CR>
-autocmd filetype cpp nmap <F10> :!time ./%:r<CR>
-autocmd FileType cpp nnoremap cpf i#pragma GCC optimize("Ofast,unroll-all-loops")<Esc>o#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")<Esc>o#include <bits/stdc++.h><Esc>o#define ll long long<Esc>o#define ull unsigned long long<Esc>o#define pii pair<int, int><Esc>o#define vi vector<int><Esc>o#define vii vector<pair<int, int>><Esc>o#define pqueue priority_queue<Esc>o#define pb push_back<Esc>o#define eb emplace_back<Esc>o#define ep emplace<Esc>o#define F first<Esc>o#define S second<Esc>o#define endl '\n'<Esc>o#define put(x) cout << x << '\n'<Esc>o#define all(v) v.begin(), v.end()<Esc>o#define MEM(x, n) memset(x, n, sizeof(x));<Esc>o#define lowbit(x) x & (-x)<Esc>o#define SZ(v) ((int)v.size())<Esc>ousing namespace std;<Esc>oconstexpr int Inf = 0x7f7f7f7f;<Esc>oconstexpr int Mod = 1e6 + 3;<Esc>oconstexpr int mxn = 1e9 + 7;<Esc>oconstexpr int d4[4][2] = {{0,-1},{-1,0},{1,0},{0,1}};<Esc>oconstexpr int d8[8][2] = {{-1,-1},{0,-1},{1,-1},{-1,0},{1,0},{-1,1},{0,1},{1,1}};<Esc>o/******************************************************************************/<Esc>o<CR>void sol() {<Esc>o<Esc>o}<Esc>o<CR>signed main(void){<CR>ios_base::sync_with_stdio(false);<CR>cin.tie(nullptr);<CR>sol();<CR>return 0;<Esc>o}
+augroup compile_mapping
+	autocmd!
+	autocmd filetype *     nmap <F7> :term<cr>
+	autocmd filetype *     nmap <F8> :!clear<cr><cr>
+	autocmd filetype c     nmap <F9> :w <bar> !clang -std=c11 % -o %:r<cr>
+	autocmd filetype cpp   nmap <F9> :w <bar> !clang++ -std=c++20 % -o %:r<cr>
+	autocmd filetype c,cpp nmap <F10> :!time ./%:r<cr>
+	autocmd FileType cpp nnoremap cpf i#pragma GCC optimize("Ofast,unroll-all-loops")<Esc>o#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")<Esc>o#include <bits/stdc++.h><Esc>o#define ll long long<Esc>o#define ull unsigned long long<Esc>o#define pii pair<int, int><Esc>o#define vi vector<int><Esc>o#define vii vector<pair<int, int>><Esc>o#define pqueue priority_queue<Esc>o#define pb push_back<Esc>o#define eb emplace_back<Esc>o#define ep emplace<Esc>o#define F first<Esc>o#define S second<Esc>o#define endl '\n'<Esc>o#define put(x) cout << x << '\n'<Esc>o#define all(v) v.begin(), v.end()<Esc>o#define MEM(x, n) memset(x, n, sizeof(x));<Esc>o#define lowbit(x) x & (-x)<Esc>o#define SZ(v) ((int)v.size())<Esc>ousing namespace std;<Esc>oconstexpr int Inf = 0x7f7f7f7f;<Esc>oconstexpr int Mod = 1e6 + 3;<Esc>oconstexpr int mxn = 1e9 + 7;<Esc>oconstexpr int d4[4][2] = {{0,-1},{-1,0},{1,0},{0,1}};<Esc>oconstexpr int d8[8][2] = {{-1,-1},{0,-1},{1,-1},{-1,0},{1,0},{-1,1},{0,1},{1,1}};<Esc>o/******************************************************************************/<Esc>o<cr>void sol() {<Esc>o<Esc>o}<Esc>o<cr>signed main(void){<cr>ios_base::sync_with_stdio(false);<cr>cin.tie(nullptr);<cr>sol();<cr>return 0;<Esc>o}
+augroup END
 
 set nu
 augroup numbertoggle
@@ -74,12 +79,14 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set rnu
     autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
+
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
 hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
 
 " ====================================================== VIM-ALE CONFIG =======================================================
 
 " === GLOBAL ===
+let g:ale_set_quickfix=1                " So that we can use :copen command
 let g:ale_completion_enabled=1	      	" Enable ALE's completion feature
 let g:ale_sign_column_always=0	      	" Always show ALE sign column
 let g:ale_linters_explicit=0	      		" Only use linters that are explicitly enabled
@@ -114,10 +121,11 @@ let g:ale_fixers = {
 
 " Keybinds
 nmap <leader>a :ALEToggle<cr>
-nmap <leader>f :ALEFix<CR>
-nmap <leader>l :ALELint<CR>
-nmap <leader>n :ALENext<CR>
-nmap <leader>p :ALEPrevious<CR>
+nmap <leader>f :ALEFix<cr>
+nmap <leader>l :ALELint<cr>
+nmap <leader>n :ALENext<cr>
+nmap <leader>p :ALEPrevious<cr>
+"nmap <leader>C :copen<cr> " type is by hand and close it by ZZ
 
 " =================================== CLANG-COMPLETE & MU-COMPLETE VIM SCRIPT CONFIG ==========================================
 set noinfercase
@@ -128,12 +136,13 @@ set shortmess+=c " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
 set pumheight=15
 let g:mucomplete#enable_auto_at_startup=1
-let g:mucomplete#completion_delay=0
+let g:mucomplete#completion_delay=1
 let g:clang_use_library=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
-let g:clang_user_options='-std=c++20'
 let g:clang_auto_select=1
 let g:clang_close_preview=1
+autocmd filetype c let g:clang_user_options='-std=c11'
+autocmd filetype cpp let g:clang_user_options='-std=c++20'
 
 " if there's an error, allow us to see it
 let g:clang_complete_copen=1
