@@ -1,0 +1,16 @@
+; This file located at /etc/systemd/system,
+; the purpose is to invoke the slock when closing the laptop lid.
+; Don’t forget to add your username after @ (suspend@username.service)
+
+[Unit]
+Description=Lock X session using slock for user %i
+Before=sleep.target
+
+[Service]
+User=%i
+Environment=DISPLAY=:0
+ExecStart=/usr/local/bin/slock
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target
