@@ -68,10 +68,10 @@ set undofile
 set undodir=~/.vim/vimundo/
 
 " shift-page up/down move line
-nnoremap <S-PageUp> :m-2<CR>
-nnoremap <S-PageDown> :m+<CR>
-inoremap <S-PageUp> <Esc>:m-2<CR>i
-inoremap <S-PageDown> <Esc>:m+<CR>i
+nnoremap <S-up> :m-2<CR>
+nnoremap <S-down> :m+<CR>
+inoremap <S-up> <Esc>:m-2<CR>i
+inoremap <S-down> <Esc>:m+<CR>i
 
 " copy to end
 nnoremap Y y$

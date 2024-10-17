@@ -1,6 +1,13 @@
+# Zellij auto-startup
+if [[ -z "$ZELLIJ" && "$TERM" == "st-256color" ]]; then
+    if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+        exec zellij attach -c
+    else
+        exec zellij
+    fi
+fi
+
 # MY FETCH
-# pokemon-colorscripts -r 1 --no-title
-# colorscript -r
 pfetch
 
 # Created by Zap installer
