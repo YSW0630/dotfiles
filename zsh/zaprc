@@ -1,10 +1,6 @@
-# Zellij auto-startup
-if [[ -z "$ZELLIJ" && "$TERM" == "st-256color" ]]; then
-    if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-        exec zellij attach -c
-    else
-        exec zellij
-    fi
+# Run tmux at startup
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ "$TERM" = "alacritty" ]; then
+  tmux attach-session || exec tmux new-session && exit
 fi
 
 # MY FETCH

@@ -54,9 +54,15 @@ nmap <leader>c :MUcompleteAutoToggle<cr>
 " toggle MarkdownPreview
 nmap <leader>m :MarkdownPreviewToggle<cr>
 
+set termguicolors                " Enable GUI colors in the terminal
 let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
 let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
-set termguicolors
+
+try
+	colorscheme catppuccin_mocha
+catch
+	colorscheme ron
+endtry
 
 " auto complete big parantheses
 inoremap { {}<Left>
@@ -65,23 +71,24 @@ inoremap {{ {
 
 augroup compile_mapping
 	autocmd!
+	autocmd filetype *     nmap <F6> :source %:p:h/*.vim
 	autocmd filetype *     nmap <F7> :term<cr>
 	autocmd filetype *     nmap <F8> :!clear<cr><cr>
 	autocmd filetype c     nmap <F9> :w <bar> !clang -std=c11 % -o %:r<cr>
 	autocmd filetype cpp   nmap <F9> :w <bar> !clang++ -std=c++20 % -o %:r<cr>
 	autocmd filetype c,cpp nmap <F10> :!time ./%:r<cr>
-	autocmd FileType cpp nnoremap cpf i#pragma GCC optimize("Ofast,unroll-all-loops")<Esc>o#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")<Esc>o#include <bits/stdc++.h><Esc>o#define ll long long<Esc>o#define ull unsigned long long<Esc>o#define pii pair<int, int><Esc>o#define vi vector<int><Esc>o#define vii vector<pair<int, int>><Esc>o#define pqueue priority_queue<Esc>o#define pb push_back<Esc>o#define eb emplace_back<Esc>o#define ep emplace<Esc>o#define F first<Esc>o#define S second<Esc>o#define endl '\n'<Esc>o#define put(x) cout << x << '\n'<Esc>o#define all(v) v.begin(), v.end()<Esc>o#define MEM(x, n) memset(x, n, sizeof(x));<Esc>o#define lowbit(x) x & (-x)<Esc>o#define SZ(v) ((int)v.size())<Esc>ousing namespace std;<Esc>oconstexpr int Inf = 0x7f7f7f7f;<Esc>oconstexpr int Mod = 1e6 + 3;<Esc>oconstexpr int mxn = 1e9 + 7;<Esc>oconstexpr int d4[4][2] = {{0,-1},{-1,0},{1,0},{0,1}};<Esc>oconstexpr int d8[8][2] = {{-1,-1},{0,-1},{1,-1},{-1,0},{1,0},{-1,1},{0,1},{1,1}};<Esc>o/******************************************************************************/<Esc>o<cr>void sol() {<Esc>o<Esc>o}<Esc>o<cr>signed main(void){<cr>ios_base::sync_with_stdio(false);<cr>cin.tie(nullptr);<cr>sol();<cr>return 0;<Esc>o}
+	autocmd FileType cpp nnoremap cpf i#include <bits/stdc++.h><cr>#define ll long long<cr>#define ull unsigned long long<cr>#define pii pair<int, int><cr>#define vi vector<int><cr>#define vii vector<pair<int, int>><cr>#define pqueue priority_queue<cr>#define pb push_back<cr>#define eb emplace_back<cr>#define ep emplace<cr>#define F first<cr>#define S second<cr>#define endl '\n'<cr>#define put(x) cout << x << '\n'<cr>#define all(v) v.begin(), v.end()<cr>#define MEM(x, n) memset(x, n, sizeof(x));<cr>#define lowbit(x) x & (-x)<cr>#define SZ(v) ((int)v.size())<cr>#ifdef LOCAL<cr>#pragma GCC optimize("Ofast,unroll-all-loops")<cr>#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")<cr>#endif<cr>using namespace std;<cr>constexpr int Inf = 0x7f7f7f7f;<cr>constexpr int Mod = 1e6 + 3;<cr>constexpr int mxn = 1e9 + 7;<cr>constexpr int d4[4][2] = {{0,-1},{-1,0},{1,0},{0,1}};<cr>constexpr int d8[8][2] = {{-1,-1},{0,-1},{1,-1},{-1,0},{1,0},{-1,1},{0,1},{1,1}};<cr>/******************************************************************************/<cr><cr>void sol() {<cr><cr>}<cr><cr>signed main(void){<cr>cin.tie(nullptr) -> sync_with_stdio(false);<cr>sol();<cr>return 0;<cr>}
 augroup END
 
 set nu
 augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set rnu
-    autocmd BufLeave,FocusLost,InsertEnter * set nornu
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set rnu
+	autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
 
-hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
-hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
+hi LineNr cterm=bold "ctermfg=DarkGrey ctermbg=NONE
+hi CursorLineNr cterm=bold "ctermfg=Green ctermbg=NONE
 
 " ====================================================== VIM-ALE CONFIG =======================================================
 

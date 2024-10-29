@@ -1,13 +1,7 @@
 "  _  __(_)_ _  ________
 " | |/ / /  ' \/ __/ __/
 " |___/_/_/_/_/_/  \__/ 
-
-try
-	colorscheme molokai
-catch
-	colorscheme default
-endtry
-
+"
 " appearance
 syntax on
 set ai
@@ -68,10 +62,10 @@ set undofile
 set undodir=~/.vim/vimundo/
 
 " shift-page up/down move line
-nnoremap <S-up> :m-2<CR>
-nnoremap <S-down> :m+<CR>
-inoremap <S-up> <Esc>:m-2<CR>i
-inoremap <S-down> <Esc>:m+<CR>i
+nnoremap <M-Up> :m-2<CR>
+nnoremap <M-Down> :m+<CR>
+inoremap <M-Up> <Esc>:m-2<CR>i
+inoremap <M-Down> <Esc>:m+<CR>i
 
 " copy to end
 nnoremap Y y$
