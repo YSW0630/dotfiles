@@ -1,0 +1,28 @@
+[user]
+	name = pacfrog
+	email = justin.sw.yang@gmail.com
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	filemode = true
+	editor = vim
+[merge]
+	tool = vimdiff
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+;[alias]
+	;co = checkout
+	;st = status
+	;ci = commit
+	;br = branch
+	;df = diff
+	;pick = cherry-pick
+	;fp = format-patch
+	;la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	;ll = log --graph --decorate --pretty=oneline --abbrev-commit
+	;lf = log --stat --decorate --format=fuller abbrev-commit
