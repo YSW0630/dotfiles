@@ -3,9 +3,9 @@
 "  / /|_/ / // / |/ / /  ' \/ /__/ _ \/ _ \/ _/
 " /_/  /_/\_, /|___/_/_/_/_/\___/\___/_//_/_/
 "        /___/
-
+"
 " Start some plugins
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'dense-analysis/ale'
@@ -59,7 +59,7 @@ let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
 let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
 
 try
-	colorscheme catppuccin_mocha
+	colorscheme codedark
 catch
 	colorscheme ron
 endtry
@@ -138,7 +138,7 @@ nmap <leader>p :ALEPrevious<cr>
 set noinfercase
 set complete+=kspell "use dictionary words with spell check"
 set completeopt-=preview "use <C-w>z or :pclose
-set completeopt+=menuone,noselect
+set completeopt+=menuone,noinsert,noselect
 set shortmess+=c " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
 set pumheight=15
