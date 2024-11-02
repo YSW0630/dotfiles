@@ -76,12 +76,12 @@ filetype plugin indent on  " Load file type plugins with indentation
 syntax enable              " Enable syntax highlighting
 
 " Exit Mappings
-inoremap jk <C-[><Right>   " Exit insert mode with 'jk'
-inoremap jj <C-[><Right>   " Exit insert mode with 'jj'
+inoremap jk <C-[><left>  " Exit insert mode with 'jk'
+inoremap jj <C-[><left>  " Exit insert mode with 'jj'
 
 " Undo Memory
 if has('nvim')
-    set undodir=~/.config/nvim/undodir
+    set undodir=~/.cache/nvim/undodir
 else
     set undodir=~/.vim/undodir
 endif
