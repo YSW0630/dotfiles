@@ -55,13 +55,13 @@ set wrapscan               " Wrap search around file
 
 " Notifications and Bells
 set noerrorbells           " Disable error bells
-set visualbell             " Visual flash instead of sound
+set novisualbell           " Disable Visual flash
 set ttyfast                " Optimize terminal communication
 
 " Mode and Behavior
 set gdefault               " Global flag for substitutions
 set nostartofline          " Maintain cursor column when jumping
-set noshowmode             " Hide mode display
+set noshowmode             " Hide mode display (vim-airline take place)
 set timeout                " Enable mapped sequence timeout
 set timeoutlen=400         " Timeout length in ms
 set virtualedit=block      " Allow free cursor movement in visual block mode
@@ -105,5 +105,5 @@ let &t_SI = "\e[6 q"       " Insert mode: beam
 let &t_SR = "\e[4 q"       " Replace mode: underline
 
 if !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
-    source /home/pacfrog/.vim/MyVimConf.vim
+	source /home/pacfrog/.vim/MyVimConf.vim
 endif
