@@ -81,9 +81,9 @@ inoremap jj <C-[><left>  " Exit insert mode with 'jj'
 
 " Undo Memory
 if has('nvim')
-    set undodir=~/.cache/nvim/undodir
+	set undodir=~/.local/state/nvim/undodir
 else
-    set undodir=~/.vim/undodir
+	set undodir=~/.vim/undodir
 endif
 set undofile               " Save undo history
 
