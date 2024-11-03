@@ -20,7 +20,6 @@ set clipboard=unnamedplus  " Use system clipboard
 set shell=/bin/sh          " Set shell to /bin/sh
 
 " Cursor and Highlighting
-set guicursor=             " Default cursor style
 set hlsearch               " Highlight search results
 set incsearch              " Incremental search
 set lazyredraw             " Improves performance when running macros
@@ -100,9 +99,13 @@ nnoremap Y y$
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Change Cursor Style
-let &t_EI = "\e[2 q"       " Normal mode: block
-let &t_SI = "\e[6 q"       " Insert mode: beam
-let &t_SR = "\e[4 q"       " Replace mode: underline
+if has('nvim')
+	set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+else
+	let &t_EI = "\e[2 q"       " Normal mode: block
+	let &t_SI = "\e[6 q"       " Insert mode: beam
+	let &t_SR = "\e[4 q"       " Replace mode: underline
+endif
 
 if !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
 	source /home/pacfrog/.vim/MyVimConf.vim

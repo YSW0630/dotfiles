@@ -3,9 +3,6 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ "$TERM" = "alacritty" ]; 
   tmux attach-session || exec tmux new-session && exit
 fi
 
-# MY FETCH
-pfetch
-
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -33,32 +30,12 @@ else
   export EDITOR='nvim'
 fi
 
-# Source some dot zsh file
-autoload -U colors && colors # Enable color support in Zsh
-source ~/gitroot/ohmyzsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh # Load the colored-man-pages plugin
-
-# My aliases
-# alias rm="rm -i"
-# alias mv="mv -i"
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias fl="ranger"
-alias sl="sl -e"
-alias p="sudo pacman"
-alias v="vim"
-alias V="vim --clean"
-alias nv="nvim"
-alias tty-clock="tty-clock -ctC 6"
-alias wth="curl wttr.in"
-alias ptt="surf term.ptt.cc"
-alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
-
-# For yt-dlp
-alias ytmus="yt-dlp -f 'ba'"
-alias ytvid="yt-dlp -f mp4" # yt-dlp -S ext:mp4:m4a <URL> for hightest quality
+# Custom command aliases and functions.
+source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/funcs.zsh
 
 # TheFuck eval
 eval $(thefuck --alias fuck)
+
+# MY FETCH
+pfetch
