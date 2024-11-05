@@ -141,36 +141,20 @@ nmap <leader>p :ALEPrevious<cr>
 "nmap <leader>C :copen<cr> " type is by hand and close it by ZZ
 
 " =================================== CLANG-COMPLETE & MU-COMPLETE VIM SCRIPT CONFIG ==========================================
-set noinfercase
-set complete+=kspell "use dictionary words with spell check"
-set completeopt-=preview "use <C-w>z or :pclose
-set completeopt+=menuone,noinsert,noselect
-set shortmess+=c " Shut off completion messages
-set belloff+=ctrlg " Add only if Vim beeps during completion
-set pumheight=15
-let g:mucomplete#enable_auto_at_startup=1
 let g:mucomplete#completion_delay=1
-let g:clang_use_library=1
-let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
+let g:mucomplete#enable_auto_at_startup=1
 let g:clang_auto_select=1
 let g:clang_close_preview=1
+let g:clang_complete_copen=1
+let g:clang_complete_macros=1
+let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
 autocmd filetype c let g:clang_user_options='-std=c11'
 autocmd filetype cpp let g:clang_user_options='-std=c++20'
 
-" if there's an error, allow us to see it
-let g:clang_complete_copen=1
-let g:clang_complete_macros=1
-let g:clang_complete_patterns=0
-
-" Limit memory use
-let g:clang_memory_percent=70
-
 " Snippets
-set conceallevel=2
-set concealcursor=vin
 let g:clang_snippets=1
 let g:clang_conceal_snippets=1
 let g:clang_trailing_placeholder=1
 let g:clang_complete_optional_args_in_snippets=1
-" The single one that works with clang_complete
-let g:clang_snippets_engine='clang_complete'
+set conceallevel=2    " hide concealed text completely unless replacement character is defined
+set concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes

@@ -19,6 +19,11 @@ set wildmenu               " Enhanced command-line completion
 set clipboard=unnamedplus  " Use system clipboard
 set shell=/bin/sh          " Set shell to /bin/sh
 
+" Completion Options
+set pumheight=10           " Set popup menu height for completion to 15 lines
+set complete+=kspell       " Use dictionary words with spell check"
+set completeopt=menuone,noinsert,noselect,preview
+
 " Cursor and Highlighting
 set hlsearch               " Highlight search results
 set incsearch              " Incremental search
@@ -55,7 +60,6 @@ set wrapscan               " Wrap search around file
 " Notifications and Bells
 set noerrorbells           " Disable error bells
 set novisualbell           " Disable Visual flash
-set ttyfast                " Optimize terminal communication
 
 " Mode and Behavior
 set gdefault               " Global flag for substitutions
