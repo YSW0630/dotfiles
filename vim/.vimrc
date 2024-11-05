@@ -75,8 +75,8 @@ filetype plugin indent on  " Load file type plugins with indentation
 syntax enable              " Enable syntax highlighting
 
 " Exit Mappings
-inoremap jk <C-[><left>  " Exit insert mode with 'jk'
-inoremap jj <C-[><left>  " Exit insert mode with 'jj'
+inoremap jk <Esc>
+inoremap jj <Esc>
 
 " Undo Memory
 if has('nvim')
@@ -87,10 +87,10 @@ endif
 set undofile               " Save undo history
 
 " Shift Line Mappings
-nnoremap <M-Up> :m-2<CR>   " Move line up
-nnoremap <M-Down> :m+<CR>  " Move line down
-inoremap <M-Up> <Esc>:m-2<CR>i
-inoremap <M-Down> <Esc>:m+<CR>i
+nnoremap <S-PageUp> :m-2<CR>
+nnoremap <S-PageDown> :m+<CR>
+inoremap <S-PageUp> <Esc>:m-2<CR>i
+inoremap <S-PageDown> <Esc>:m+<CR>i
 
 " Yank to End of Line
 nnoremap Y y$

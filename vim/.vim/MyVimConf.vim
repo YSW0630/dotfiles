@@ -107,6 +107,12 @@ let g:ale_lint_on_text_changed='normal' " Never run linting when editing the fil
 let g:ale_c_cc_options='-std=c11 -Wall -Wextra -Werror -Wno-unused-variable'
 let g:ale_cpp_cc_options='-std=c++20 -Wall -Wextra -Werror -Wno-unused-variable'
 
+" Python Options
+let g:python3_host_prog = '/usr/bin/python3'
+
+" Rust Options
+let g:rust_recommended_style = v:false
+
 " List of linters
 let g:ale_linters = {
 \   'c':      ['clang', 'gcc'],
