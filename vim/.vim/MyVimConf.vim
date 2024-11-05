@@ -90,9 +90,7 @@ augroup END
 hi LineNr cterm=bold "ctermfg=DarkGrey ctermbg=NONE
 hi CursorLineNr cterm=bold "ctermfg=Green ctermbg=NONE
 
-" ====================================================== VIM-ALE CONFIG =======================================================
-
-" === GLOBAL ===
+" VIM-ALE CONFIGURATION
 let g:ale_set_quickfix=1                " So that we can use :copen command
 let g:ale_completion_enabled=1	      	" Enable ALE's completion feature
 let g:ale_sign_column_always=0	      	" Always show ALE sign column
@@ -108,13 +106,13 @@ let g:ale_c_cc_options='-std=c11 -Wall -Wextra -Werror -Wno-unused-variable'
 let g:ale_cpp_cc_options='-std=c++20 -Wall -Wextra -Werror -Wno-unused-variable'
 
 " Python Options
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog='/usr/bin/python3'
 
 " Rust Options
-let g:rust_recommended_style = v:false
+let g:rust_recommended_style=v:false
 
 " List of linters
-let g:ale_linters = {
+let g:ale_linters={
 \   'c':      ['clang', 'gcc'],
 \   'cpp':    ['clang', 'gcc'],
 \   'python': ['flake8', 'pylint'],
@@ -123,7 +121,7 @@ let g:ale_linters = {
 \}
 
 " List of fixer
-let g:ale_fixers = {
+let g:ale_fixers={
 \   'c':	  	['clang-format'],
 \   'cpp':		['clang-format'],
 \   'python': ['autopep8', 'black'],
@@ -138,15 +136,15 @@ nmap <leader>f :ALEFix<cr>
 nmap <leader>l :ALELint<cr>
 nmap <leader>n :ALENext<cr>
 nmap <leader>p :ALEPrevious<cr>
-"nmap <leader>C :copen<cr> " type is by hand and close it by ZZ
 
-" =================================== CLANG-COMPLETE & MU-COMPLETE VIM SCRIPT CONFIG ==========================================
+" CLANG-COMPLETE & MU-COMPLETE CONFIGURATION
 let g:mucomplete#completion_delay=1
 let g:mucomplete#enable_auto_at_startup=1
 let g:clang_auto_select=1
 let g:clang_close_preview=1
 let g:clang_complete_copen=1
 let g:clang_complete_macros=1
+let g:clang_complete_patterns=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
 autocmd filetype c let g:clang_user_options='-std=c11'
 autocmd filetype cpp let g:clang_user_options='-std=c++20'
