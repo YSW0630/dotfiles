@@ -33,5 +33,5 @@ opacity = 0.9
 hide_when_typing = true
 
 [general]
-import = [ "/home/justin/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
-#import = ["/home/justin/.config/alacritty/themes/dracula/dracula.toml"]
+import = [ "/home/pacfrog/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
+#import = ["/home/pacfrog/.config/alacritty/themes/dracula/dracula.toml"]
