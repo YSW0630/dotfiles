@@ -154,5 +154,5 @@ let g:clang_snippets=1
 let g:clang_conceal_snippets=1
 let g:clang_trailing_placeholder=1
 let g:clang_complete_optional_args_in_snippets=1
-set conceallevel=2    " hide concealed text completely unless replacement character is defined
-set concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes
+autocmd filetype c,cpp setlocal conceallevel=2    " hide concealed text completely unless replacement character is defined
+autocmd filetype c,cpp setlocal concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes
