@@ -17,7 +17,7 @@ set wildmenu               " Enhanced command-line completion
 
 " Clipboard and Shell
 set clipboard=unnamedplus  " Use system clipboard
-set shell=/bin/sh          " Set shell to /bin/sh
+set shell=/bin/zsh         " Set shell to /bin/zsh
 
 " Completion Options
 set pumheight=10           " Set popup menu height for completion to 15 lines

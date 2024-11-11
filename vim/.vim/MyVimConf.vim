@@ -41,9 +41,6 @@ nmap <leader>T :UndotreeToggle<cr>
 " toggle Tagbar
 nmap <leader>t :TagbarToggle<cr>
 
-" toggle Clang Format (replaced by ALE)
-"nmap <leader>f :ClangFormat<cr>
-
 " toggle Indent Guide
 let g:indent_guides_enable_on_vim_startup=1
 nmap <leader>i :IndentGuidesToggle<cr>
