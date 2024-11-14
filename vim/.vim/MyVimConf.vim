@@ -47,6 +47,8 @@ nmap <leader>i :IndentGuidesToggle<cr>
 
 " toggle MUcomplete
 nmap <leader>c :MUcompleteAutoToggle<cr>
+imap <c-j> <plug>(MUcompleteFwd)
+imap <c-k> <plug>(MUcompleteBwd)
 
 " toggle MarkdownPreview
 nmap <leader>m :MarkdownPreviewToggle<cr>
@@ -114,7 +116,6 @@ let g:ale_linters={
 \   'cpp':    ['clang', 'gcc'],
 \   'python': ['flake8', 'pylint'],
 \   'rust':		['analyzer'],
-\   'java':		['javac', 'checkstyle'],
 \}
 
 " List of fixer
@@ -123,7 +124,6 @@ let g:ale_fixers={
 \   'cpp':		['clang-format'],
 \   'python': ['autopep8', 'black'],
 \   'rust':		['rustfmt'],
-\   'java':		['google_java_format'],
 \   '*':      ['remove_trailing_lines', 'trim_whitespace'],
 \}
 

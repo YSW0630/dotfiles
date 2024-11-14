@@ -29,9 +29,11 @@ alias :q='exit'
 alias :q!='exit'
 
 # configuration shortcuts
-alias zshconf="v ~/.zshrc"
-alias zenvconf="v ~/.zshenv"
-alias vimconf="v ~/.vimrc"
+alias zal="v ~/.config/zsh/aliases.zsh"
+alias zfn="v ~/.config/zsh/funcs.zsh"
+alias zconf="v ~/.zshrc"
+alias zenv="v ~/.zshenv"
+alias vconf="v ~/.vimrc"
 alias myvim="v ~/.vim/MyVimConf.vim"
 alias nvconf="v ~/.config/nvim/init.vim"
 
