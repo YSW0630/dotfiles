@@ -5,7 +5,7 @@ program = "/usr/bin/zsh"
 TERM = "alacritty"
 
 [font]
-size = 12.0
+size = 8.0
 
 [font.normal]
 family = "FantasqueSansM Nerd Font"
@@ -33,5 +33,5 @@ opacity = 0.9
 hide_when_typing = true
 
 [general]
-import = [ "/home/pacfrog/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
-#import = ["/home/pacfrog/.config/alacritty/themes/dracula/dracula.toml"]
+import = [ "/home/justin/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml"]
+#import = ["/home/justin/.config/alacritty/themes/dracula/dracula.toml"]

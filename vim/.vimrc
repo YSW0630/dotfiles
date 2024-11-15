@@ -111,6 +111,6 @@ else
 	let &t_SR = "\e[4 q"       " Replace mode: underline
 endif
 
-if !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
-	source /home/pacfrog/.vim/MyVimConf.vim
+if !exists('vscode') && filereadable('/home/justin/.vim/MyVimConf.vim')
+	source /home/justin/.vim/MyVimConf.vim
 endif
