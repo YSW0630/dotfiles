@@ -1,4 +1,9 @@
-[terminal.shell]
+#[general]
+import = ["/home/pacfrog/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
+#import = ["/home/pacfrog/.config/alacritty/themes/dracula/dracula.toml"]
+
+#[terminal.shell]
+[shell]
 program = "/usr/bin/zsh"
 
 [env]
@@ -31,7 +36,3 @@ opacity = 0.9
 
 [mouse]
 hide_when_typing = true
-
-[general]
-import = [ "/home/pacfrog/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
-#import = ["/home/pacfrog/.config/alacritty/themes/dracula/dracula.toml"]
