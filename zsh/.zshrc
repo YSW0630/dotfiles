@@ -30,6 +30,9 @@ else
   export EDITOR='nvim'
 fi
 
+# Set default man pager
+export MANPAGER='nvim +Man!'
+
 # Custom command aliases and functions.
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/funcs.zsh
