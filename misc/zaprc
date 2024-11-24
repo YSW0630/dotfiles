@@ -30,12 +30,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 plugins=(
 	git 
-	sudo
 	fzf
-	fzf-tab
+	sudo
+	extract
 	vi-mode 
 	zsh-autosuggestions
 	zsh-syntax-highlighting 
+	zsh-autocomplete 
 	zsh-you-should-use
 )
 

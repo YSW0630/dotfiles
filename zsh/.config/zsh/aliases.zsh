@@ -1,7 +1,7 @@
 # shortcuts
-alias l='ls -CF'
-alias ll='ls -alF'
-alias la='ls -A'
+#alias l='ls -CF'
+#alias ll='ls -alF'
+#alias la='ls -A'
 alias fl="ranger"
 alias sl="sl -e"
 alias p="sudo pacman"
@@ -33,6 +33,7 @@ alias zal="v ~/.config/zsh/aliases.zsh"
 alias zfn="v ~/.config/zsh/funcs.zsh"
 alias zconf="v ~/.zshrc"
 alias zenv="v ~/.zshenv"
+alias ohmyzsh="v ~/.config/oh-my-zsh"
 alias vconf="v ~/.vimrc"
 alias myvim="v ~/.vim/MyVimConf.vim"
 alias nvconf="v ~/.config/nvim/init.vim"
