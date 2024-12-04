@@ -1,5 +1,5 @@
 # Run tmux at startup
-if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ "$TERM" = "alacritty" ]; then
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] && env | grep -q "ALACRITTY"; then
   tmux attach-session || exec tmux new-session && exit
 fi
 
@@ -18,7 +18,7 @@ export ZSH="$HOME/.config/oh-my-zsh"
 # (9)  Disable marking untracked files under VCS as dirty
 # (10) Add commands execution time to the history
 # (11) Plugins
-ZSH_THEME="rkj-repos"
+ZSH_THEME="atmachine-prompt" # https://github.com/zap-zsh/atmachine-prompt/blob/master/atmachine-prompt.zsh-theme
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode auto
@@ -32,6 +32,7 @@ plugins=(
 	git 
 	sudo
 	fzf
+	extract
 	fzf-tab
 	vi-mode 
 	zsh-autosuggestions

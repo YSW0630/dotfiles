@@ -1,13 +1,11 @@
-#[general]
-import = ["/home/pacfrog/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
-#import = ["/home/pacfrog/.config/alacritty/themes/dracula/dracula.toml"]
+[general]
+import = ["/home/pacfrog/.config/alacritty/themes/catppuccin_mocha.toml"]
 
-#[terminal.shell]
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [env]
-TERM = "alacritty"
+TERM = "xterm-256color"
 
 [font]
 size = 12.0

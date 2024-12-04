@@ -15,4 +15,4 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export NIMBLE_DIR="$XDG_DATA_HOME/nimble"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv                                   

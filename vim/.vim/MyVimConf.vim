@@ -9,58 +9,56 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'dense-analysis/ale'
-Plug 'xavierd/clang_complete'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'mbbill/undotree'
 Plug 'preservim/tagbar'
 Plug 'rust-lang/rust.vim'
-Plug 'mbbill/undotree'
 Plug 'bfrg/vim-cpp-modern'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'preservim/vim-indent-guides'
+Plug 'xavierd/clang_complete'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/vim-indent-guides'
 Plug 'davidhalter/jedi-vim' " If python-jedi has installed
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn have installed
 call plug#end()
 
-" set molokai theme
-let g:molokai_original=1
-let g:rehash256=1
+" Set airline theme
+let g:airline_theme='deus' " 'deus' 'dark' 'simple' 'minimalist' 'term' 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
 
-" set airline theme
-let g:airline_theme='deus' " 'term' 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
-
-" toggle NERDTree
+" Toggle NERDTree
 nmap <leader>e :NERDTreeToggle<cr>
 
-" toggle UndoTree
+" Toggle UndoTree
 nmap <leader>T :UndotreeToggle<cr>
 
-" toggle Tagbar
+" Toggle Tagbar
 nmap <leader>t :TagbarToggle<cr>
 
-" toggle Indent Guide
+" Toggle Indent Guide
 let g:indent_guides_enable_on_vim_startup=1
 nmap <leader>i :IndentGuidesToggle<cr>
 
-" toggle MUcomplete
+" Toggle MUcomplete
 nmap <leader>c :MUcompleteAutoToggle<cr>
 imap <c-j> <plug>(MUcompleteFwd)
 imap <c-k> <plug>(MUcompleteBwd)
 
-" toggle MarkdownPreview
+" Toggle MarkdownPreview
 nmap <leader>m :MarkdownPreviewToggle<cr>
 
-set termguicolors                " Enable GUI colors in the terminal
-let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
-let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
+if has("termguicolors")
+	let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
+	let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
+	set termguicolors	               " Enable GUI colors in the terminal
+endif
 
 try
 	colorscheme codedark
 catch
-	colorscheme ron
+	colorscheme torte
 endtry
 
 " auto complete big parantheses
@@ -86,9 +84,6 @@ augroup numbertoggle
 	autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
 
-hi LineNr cterm=bold "ctermfg=DarkGrey ctermbg=NONE
-hi CursorLineNr cterm=bold "ctermfg=Green ctermbg=NONE
-
 " VIM-ALE CONFIGURATION
 let g:ale_set_quickfix=1                " So that we can use :copen command
 let g:ale_completion_enabled=1	      	" Enable ALE's completion feature
@@ -97,8 +92,8 @@ let g:ale_linters_explicit=0	      		" Only use linters that are explicitly enab
 let g:ale_lint_on_enter=0			      	  " Do not run linting when opening a file
 let g:ale_fix_on_save=0				        	" Automatically fix errors on save
 let g:ale_lint_on_text_changed='normal' " Never run linting when editing the file
-"let g:ale_sign_error=' '
-"let g:ale_sign_warning=' '
+"let g:ale_sign_error='E'
+"let g:ale_sign_warning='W'
 
 " C/CPP Options
 let g:ale_c_cc_options='-std=c11 -Wall -Wextra -Werror -Wno-unused-variable'
