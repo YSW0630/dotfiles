@@ -6,6 +6,13 @@
 "
 " Start some plugins
 call plug#begin('~/.vim/plugged')
+" Themes
+Plug 'catppuccin/vim', {'as': 'catppuccin-theme'}
+Plug 'tomasiser/vim-code-dark', {'as': 'vscode-theme'}
+Plug 'dracula/vim', {'as': 'dracula-theme'}
+Plug 'YSW0630/molokai-matchOrange', {'as': 'MyMolokai-theme'}
+Plug 'nordtheme/vim', {'as': 'nord-theme'}
+" Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'dense-analysis/ale'
@@ -21,6 +28,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/vim-indent-guides'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim' " If python-jedi has installed
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn have installed
 call plug#end()
@@ -52,6 +60,13 @@ imap <c-k> <plug>(MUcompleteBwd)
 
 " toggle MarkdownPreview
 nmap <leader>m :MarkdownPreviewToggle<cr>
+
+" mapping fzf.vim
+nmap <leader>ff :Files<cr>
+nmap <leader>fb :Buffers<cr>
+nmap <leader>fg :Rg<cr>
+nmap <leader>fc :Colors<cr>
+nmap <leader>fh :History<cr>
 
 set termguicolors                " Enable GUI colors in the terminal
 let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
