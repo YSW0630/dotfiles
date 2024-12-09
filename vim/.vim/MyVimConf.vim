@@ -82,7 +82,6 @@ inoremap {{ {
 
 augroup compile_mapping
 	autocmd!
-	autocmd filetype *     nmap <F6> :source %:p:h/*.vim
 	autocmd filetype *     nmap <F7> :term<cr>
 	autocmd filetype *     nmap <F8> :!clear<cr><cr>
 	autocmd filetype c     nmap <F9> :w <bar> !clang -std=c11 -lm % -o %:r<cr>
@@ -144,8 +143,8 @@ nmap <leader>an :ALENext<cr>
 nmap <leader>ap :ALEPrevious<cr>
 
 " CLANG-COMPLETE & MU-COMPLETE CONFIGURATION
-let g:mucomplete#completion_delay=1
 let g:mucomplete#enable_auto_at_startup=1
+let g:mucomplete#completion_delay=1
 let g:clang_use_library=1
 let g:clang_auto_select=1
 let g:clang_close_preview=1
@@ -154,8 +153,11 @@ let g:clang_complete_macros=1
 let g:clang_complete_patterns=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
 let g:clang_auto_user_options='.clang_complete, path, compile_commands.json'
-autocmd filetype c let g:clang_user_options='-std=c11'
-autocmd filetype cpp let g:clang_user_options='-std=c++20'
+
+" Don't use it instead of giving args to compile_commands.json,
+" because it caused Ctrl+] can't work properly in *.c files
+"autocmd filetype c let g:clang_user_options='-std=c11'
+"autocmd filetype cc let g:clang_user_options='-std=c++20'
 
 " Snippets
 let g:clang_snippets=1
