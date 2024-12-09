@@ -49,13 +49,12 @@ nmap <leader>t :TagbarToggle<cr>
 let g:indent_guides_enable_on_vim_startup=1
 nmap <leader>i :IndentGuidesToggle<cr>
 
-" Toggle MUcomplete
-nmap <leader>c :MUcompleteAutoToggle<cr>
-imap <c-j> <plug>(MUcompleteFwd)
-imap <c-k> <plug>(MUcompleteBwd)
-
 " Toggle MarkdownPreview
 nmap <leader>m :MarkdownPreviewToggle<cr>
+
+" mapping MUcomplete
+imap <c-j> <plug>(MUcompleteFwd)
+imap <c-k> <plug>(MUcompleteBwd)
 
 " mapping fzf.vim
 nmap <leader>ff :Files<cr>
@@ -138,21 +137,23 @@ let g:ale_fixers={
 \}
 
 " Keybinds
-nmap <leader>a :ALEToggle<cr>
-nmap <leader>f :ALEFix<cr>
-nmap <leader>l :ALELint<cr>
-nmap <leader>n :ALENext<cr>
-nmap <leader>p :ALEPrevious<cr>
+nmap <leader>A :ALEToggle<cr>
+nmap <leader>af :ALEFix<cr>
+nmap <leader>al :ALELint<cr>
+nmap <leader>an :ALENext<cr>
+nmap <leader>ap :ALEPrevious<cr>
 
 " CLANG-COMPLETE & MU-COMPLETE CONFIGURATION
 let g:mucomplete#completion_delay=1
 let g:mucomplete#enable_auto_at_startup=1
+let g:clang_use_library=1
 let g:clang_auto_select=1
 let g:clang_close_preview=1
 let g:clang_complete_copen=1
 let g:clang_complete_macros=1
 let g:clang_complete_patterns=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
+let g:clang_auto_user_options='.clang_complete, path, compile_commands.json'
 autocmd filetype c let g:clang_user_options='-std=c11'
 autocmd filetype cpp let g:clang_user_options='-std=c++20'
 
