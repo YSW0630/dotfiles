@@ -16,19 +16,19 @@ Plug 'nordtheme/vim', {'as': 'nord-theme'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'dense-analysis/ale'
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 Plug 'preservim/tagbar'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/vim-indent-guides'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'xavierd/clang_complete'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'ryanoasis/vim-devicons'
-Plug 'preservim/vim-indent-guides'
 Plug 'davidhalter/jedi-vim' " If python-jedi has installed
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn have installed
 call plug#end()
@@ -55,6 +55,10 @@ nmap <leader>m :MarkdownPreviewToggle<cr>
 " mapping MUcomplete
 imap <c-j> <plug>(MUcompleteFwd)
 imap <c-k> <plug>(MUcompleteBwd)
+inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+imap <right> <plug>(MUcompleteCycFwd)
+inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+imap <left> <plug>(MUcompleteCycBwd)
 
 " mapping fzf.vim
 nmap <leader>ff :Files<cr>
@@ -70,7 +74,7 @@ if has("termguicolors")
 endif
 
 try
-	colorscheme codedark
+	colorscheme dracula
 catch
 	colorscheme torte
 endtry
@@ -122,6 +126,7 @@ let g:rust_recommended_style=v:false
 let g:ale_linters={
 \   'c':      ['clang', 'gcc'],
 \   'cpp':    ['clang', 'gcc'],
+\   'cmake':  ['cmakelint'],
 \   'python': ['flake8', 'pylint'],
 \   'rust':		['analyzer'],
 \}
@@ -130,13 +135,14 @@ let g:ale_linters={
 let g:ale_fixers={
 \   'c':	  	['clang-format'],
 \   'cpp':		['clang-format'],
+\   'cmake':  ['cmakeformat'],
 \   'python': ['autopep8', 'black'],
 \   'rust':		['rustfmt'],
 \   '*':      ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
 " Keybinds
-nmap <leader>A :ALEToggle<cr>
+nmap <leader>aa :ALEToggle<cr>
 nmap <leader>af :ALEFix<cr>
 nmap <leader>al :ALELint<cr>
 nmap <leader>an :ALENext<cr>
@@ -153,11 +159,6 @@ let g:clang_complete_macros=1
 let g:clang_complete_patterns=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
 let g:clang_auto_user_options='.clang_complete, path, compile_commands.json'
-
-" Don't use it instead of giving args to compile_commands.json,
-" because it caused Ctrl+] can't work properly in *.c files
-"autocmd filetype c let g:clang_user_options='-std=c11'
-"autocmd filetype cc let g:clang_user_options='-std=c++20'
 
 " Snippets
 let g:clang_snippets=1

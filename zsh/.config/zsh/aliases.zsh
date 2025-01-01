@@ -8,7 +8,7 @@ alias p="sudo pacman"
 alias v="vim"
 alias V="vim --clean"
 alias nv="nvim"
-alias tty-clock="tty-clock -ctC 6"
+alias tty-clock="tty-clock -bsctC 6"
 alias wth="curl wttr.in"
 alias ptt="surf term.ptt.cc"
 alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
@@ -44,6 +44,7 @@ alias dl='cd ~/Downloads; ll'
 alias docs='cd ~/Documents; ll'
 alias books='cd ~/Documents/Books; ll'
 alias works='cd ~/workspace; ll'
+alias proj='cd ~/workspace/Cpp/proj; ll'
 alias pics='cd ~/Pictures; ll'
 alias vids='cd ~/Videos; ll'
 alias musics='cd ~/Music; ll'

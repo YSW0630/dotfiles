@@ -83,12 +83,8 @@ inoremap jk <Esc>
 inoremap jj <Esc>
 
 " Undo Memory
-if has('nvim')
-	set undodir=~/.local/state/nvim/undodir
-else
-	set undodir=~/.vim/undodir
-endif
-set undofile               " Save undo history
+set undodir=~/.vim/undodir
+set undofile
 
 " Shift Line Mappings
 nnoremap <S-PageUp> :m-2<CR>
@@ -103,13 +99,9 @@ nnoremap Y y$
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Change Cursor Style
-if has('nvim')
-	set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-else
-	let &t_EI = "\e[2 q"       " Normal mode: block
-	let &t_SI = "\e[6 q"       " Insert mode: beam
-	let &t_SR = "\e[4 q"       " Replace mode: underline
-endif
+let &t_EI = "\e[2 q"       " Normal mode: block
+let &t_SI = "\e[6 q"       " Insert mode: beam
+let &t_SR = "\e[4 q"       " Replace mode: underline
 
 if !exists('vscode') && filereadable('/home/pacfrog/.vim/MyVimConf.vim')
 	source /home/pacfrog/.vim/MyVimConf.vim
