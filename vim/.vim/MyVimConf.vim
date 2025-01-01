@@ -159,6 +159,8 @@ let g:clang_complete_macros=1
 let g:clang_complete_patterns=1
 let g:clang_library_path='/usr/lib/llvm14/lib/libclang.so.14.0.6'
 let g:clang_auto_user_options='.clang_complete, path, compile_commands.json'
+let g:clang_jumpto_declaration_key="<C-[>"
+let g:clang_jumpto_declaration_in_preview_key="<C-W>["
 
 " Snippets
 let g:clang_snippets=1
@@ -167,3 +169,26 @@ let g:clang_trailing_placeholder=1
 let g:clang_complete_optional_args_in_snippets=1
 autocmd filetype c,cpp setlocal conceallevel=2    " hide concealed text completely unless replacement character is defined
 autocmd filetype c,cpp setlocal concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes
+
+" Cscope Configuration
+if has("cscope")
+	set cscopeprg=/usr/bin/cscope
+	set cscopetag
+	set csto=0
+
+	if filereadable("cscope.out")
+		cs add cscope.out   
+	elseif $CSCOPE_DB != ""
+		cs add $CSCOPE_DB
+	endif
+	set cscopeverbose
+
+	nmap <leader>zs :cs find s <C-R>=expand("<cword>")<CR><CR>
+	nmap <leader>zg :cs find g <C-R>=expand("<cword>")<CR><CR>
+	nmap <leader>zc :cs find c <C-R>=expand("<cword>")<CR><CR>
+	nmap <leader>zt :cs find t <C-R>=expand("<cword>")<CR><CR>
+	nmap <leader>ze :cs find e <C-R>=expand("<cword>")<CR><CR>
+	nmap <leader>zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	nmap <leader>zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nmap <leader>zd :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
