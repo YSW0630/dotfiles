@@ -47,7 +47,6 @@ set linebreak              " Wrap lines at word boundaries
 set hidden                 " Allow switching buffers without saving
 set history=100            " Command history size
 set nofoldenable           " Disable code folding by default
-set autoread               " Auto-read file changes
 set report=0               " Always show change reports
 
 " Regex and Search

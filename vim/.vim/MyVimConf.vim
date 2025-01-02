@@ -14,7 +14,7 @@ Plug 'YSW0630/molokai-matchOrange', {'as': 'MyMolokai-theme'}
 Plug 'nordtheme/vim', {'as': 'nord-theme'}
 " Plugins
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes' 
+Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
@@ -33,46 +33,11 @@ Plug 'davidhalter/jedi-vim' " If python-jedi has installed
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " If nodejs and yarn have installed
 call plug#end()
 
-" Set airline theme
-let g:airline_theme='deus' " 'deus' 'dark' 'simple' 'minimalist' 'term' 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
-
-" Toggle NERDTree
-nmap <leader>e :NERDTreeToggle<cr>
-
-" Toggle UndoTree
-nmap <leader>T :UndotreeToggle<cr>
-
-" Toggle Tagbar
-nmap <leader>t :TagbarToggle<cr>
-
-" Toggle Indent Guide
-let g:indent_guides_enable_on_vim_startup=1
-nmap <leader>i :IndentGuidesToggle<cr>
-
-" Toggle MarkdownPreview
-nmap <leader>m :MarkdownPreviewToggle<cr>
-
-" mapping MUcomplete
-imap <c-j> <plug>(MUcompleteFwd)
-imap <c-k> <plug>(MUcompleteBwd)
-inoremap <silent> <plug>(MUcompleteFwdKey) <right>
-imap <right> <plug>(MUcompleteCycFwd)
-inoremap <silent> <plug>(MUcompleteBwdKey) <left>
-imap <left> <plug>(MUcompleteCycBwd)
-
-" mapping fzf.vim
-nmap <leader>ff :Files<cr>
-nmap <leader>fb :Buffers<cr>
-nmap <leader>fg :Rg<cr>
-nmap <leader>fc :Colors<cr>
-nmap <leader>fh :History<cr>
-
 if has("termguicolors")
 	let &t_8f="\e[38;2;%lu;%lu;%lum" " sets foreground color (ANSI, true-color mode)
 	let &t_8b="\e[48;2;%lu;%lu;%lum" " sets background color (ANSI, true-color mode)
 	set termguicolors	               " Enable GUI colors in the terminal
 endif
-
 try
 	colorscheme dracula
 catch
@@ -100,6 +65,40 @@ augroup numbertoggle
 	autocmd BufEnter,FocusGained,InsertLeave * set rnu
 	autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
+
+" Set airline theme
+let g:airline_theme='deus' " 'deus' 'dark' 'simple' 'minimalist' 'term' 'jet' 'google_dark' 'molokai' 'base16_seti' 'base16_dracula'
+
+" Toggle NERDTree
+nmap <leader>e :NERDTreeToggle<cr>
+
+" Toggle UndoTree
+nmap <leader>T :UndotreeToggle<cr>
+
+" Toggle Tagbar
+nmap <leader>t :TagbarToggle<cr>
+
+" Toggle Indent Guide
+let g:indent_guides_enable_on_vim_startup=1
+nmap <leader>i :IndentGuidesToggle<cr>
+
+" Toggle MarkdownPreview
+nmap <leader>m :MarkdownPreviewToggle<cr>
+
+" Mapping MUcomplete
+imap <c-j> <plug>(MUcompleteFwd)
+imap <c-k> <plug>(MUcompleteBwd)
+inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+imap <right> <plug>(MUcompleteCycFwd)
+inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+imap <left> <plug>(MUcompleteCycBwd)
+
+" Mapping fzf.vim
+nmap <leader>ff :Files<cr>
+nmap <leader>fb :Buffers<cr>
+nmap <leader>fg :Rg<cr>
+nmap <leader>fc :Colors<cr>
+nmap <leader>fh :History<cr>
 
 " VIM-ALE CONFIGURATION
 let g:ale_set_quickfix=1                " So that we can use :copen command
@@ -170,26 +169,36 @@ let g:clang_complete_optional_args_in_snippets=1
 autocmd filetype c,cpp setlocal conceallevel=2    " hide concealed text completely unless replacement character is defined
 autocmd filetype c,cpp setlocal concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes
 
-" Cscope Configuration
-if has("cscope")
-	set cscopeprg=/usr/bin/cscope
-	set cscopetag
-	set csto=0
+" Ctags & Cscope Configuration
+function SetupCscope()
+	set tags+=./tags;/
+	if has("cscope")
+		set cscopeprg=/usr/bin/cscope " Set the path to the cscope executable
+		set cscopetag                 " Use cscope for tag commands
+		set csto=0                    " Set the maximum number of cscope connections to 0 (unlimited)
+		set cscopeverbose
 
-	if filereadable("cscope.out")
-		cs add cscope.out
-	elseif $CSCOPE_DB != ""
-		cs add $CSCOPE_DB
+		if filereadable("cscope.out")
+			cs add cscope.out
+		else
+			let cscope_file=findfile("cscope.out", ".;")
+			let cscope_pre=matchstr(cscope_file, ".*/")
+			if !empty(cscope_file) && file_readable(cscope_file)
+				exe "cs add" cscope_file cscope_pre
+			endif
+		endif
+
+		nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
+		nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+		nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+		nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+		nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+		nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+		nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+		nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+		nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 	endif
-	set cscopeverbose
+endfunction
 
-	nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-	nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-	nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-endif
+command! EnableCscope call SetupCscope()
+nnoremap <leader>cs :call SetupCscope()<CR>
