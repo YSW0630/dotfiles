@@ -7,14 +7,15 @@ Plug 'preservim/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'bfrg/vim-cpp-modern'
+Plug 'gauteh/vim-cppman'
+Plug 'bfrg/vim-c-cpp-modern'
 Plug 'rhysd/vim-clang-format'
 Plug 'YSW0630/Shorter_clang_complete'
 Plug 'lifepillar/vim-mucomplete'
 call plug#end()
 
 " Clang-format
-let g:clang_format#code_style="llvm"
+let g:clang_format#code_style="google"
 
 " MUcomplete
 let g:mucomplete#enable_auto_at_startup=1

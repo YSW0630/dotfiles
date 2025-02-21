@@ -12,12 +12,13 @@ set wildmenu               " Enhanced command-line completion
 
 " Clipboard and Shell
 set clipboard=unnamedplus  " Use system clipboard
-set shell=/bin/bash        " Set shell to /bin/zsh
+set shell=/bin/bash          " Set shell to /bin/zsh
 
 " Completion Options
 set pumheight=10           " Set popup menu height for completion to 15 lines
 set complete+=kspell       " Use dictionary words with spell check"
-set completeopt=menu,menuone,noselect,preview "popup
+set completeopt=menu,menuone,noselect,popup "preview
+set completepopup=height:10,width:60,highlight:Terminal
 
 " Cursor and Highlighting
 set hlsearch               " Highlight search results
@@ -35,7 +36,7 @@ set smartcase              " Case-sensitive search when using uppercase
 set tabstop=2              " Number of spaces for <Tab>
 set shiftwidth=2           " Indent size
 set softtabstop=2          " Spaces per <Tab> when editing
-set noexpandtab            " Use actual tab character
+set expandtab              " Use spaces instead of tabs
 set wrap                   " Wrap long lines
 set linebreak              " Wrap lines at word boundaries
 

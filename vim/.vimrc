@@ -3,20 +3,30 @@
 " |___/_/_/_/_/_/  \__/ 
 "
 
-" ==========       Basic configuration        ==========
+" ========== Basic configuration =======================
+
 source $HOME/.vim/basics.vim
 
-" ==========       Pretty configuration       ==========
+" ========== Pretty configuration ======================
+
 source $HOME/.vim/pretty.vim
 
-" ==========       KeyMapping configuration   ==========
+" ========== KeyMapping configuration ==================
+
 source $HOME/.vim/keymapping.vim
 
-" ==========       Plugins configuration      ==========
+" ========== Plugins configuration =====================
+
 source $HOME/.vim/pluginsConf.vim
 
-" ==========      Commands configuration      ==========
+" ========== Plugins KeyMapping configuration ==========
+
+source $HOME/.vim/pluginsMapping.vim
+
+" ========== Commands configuration ====================
+
 source $HOME/.vim/commandsConf.vim
 
-" ========== Plugins KeyMapping configuration ==========
-source $HOME/.vim/pluginsMapping.vim
+" ========== My Custom Path ============================
+
+source $HOME/.vim/myPath.vim
