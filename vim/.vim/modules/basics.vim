@@ -30,7 +30,8 @@ set mouse=a                " Enable mouse in all modes
 set autoindent             " Auto-indent new lines
 set autoread               " Reload files changed outside Vim
 set cindent                " C-style indentation
-set cinoptions=g0          " Instructs Vim to use 0 spaces for indentation
+set cinoptions+=g0         " Instructs Vim to use 0 spaces for indentation
+set cinoptions+=:0         " Switch-case in the same indentation
 set smarttab               " Insert shiftwidth spaces with <Tab>
 set smartcase              " Case-sensitive search when using uppercase
 set tabstop=2              " Number of spaces for <Tab>
