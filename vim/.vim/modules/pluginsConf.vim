@@ -7,6 +7,8 @@ Plug 'preservim/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'YSW0630/vim-snippets'
 Plug 'gauteh/vim-cppman'
 Plug 'bfrg/vim-c-cpp-modern'
 Plug 'rhysd/vim-clang-format'
@@ -41,3 +43,9 @@ let g:clang_trailing_placeholder=1
 let g:clang_complete_optional_args_in_snippets=1
 autocmd filetype c,cpp setlocal conceallevel=2    " hide concealed text completely unless replacement character is defined
 autocmd filetype c,cpp setlocal concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
