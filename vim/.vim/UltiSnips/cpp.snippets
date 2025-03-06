@@ -1,3 +1,12 @@
+snippet fhead "Insert file header comment"
+/*
+ * File: ${1:`!v expand('%:t')`}
+ * Author: ${2:Your Name}
+ * Date: `!v strftime('%Y-%m-%d')`
+ * Description: ${3:Description}
+ */
+endsnippet
+
 snippet cpf "Competitive programming format"
 #include <bits/stdc++.h>
 #define ll long long

@@ -8,7 +8,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
-Plug 'YSW0630/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'gauteh/vim-cppman'
 Plug 'bfrg/vim-c-cpp-modern'
 Plug 'rhysd/vim-clang-format'
