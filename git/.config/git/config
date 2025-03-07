@@ -2,7 +2,6 @@
 	name = pacfrog
 	email = justin.sw.yang@gmail.com
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
 	filemode = true
 	editor = vim
 [merge]
@@ -15,7 +14,8 @@
 	log = auto
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
-;[alias]
+[alias]
+  graph = log --graph --oneline --all --decorate --color
 	;co = checkout
 	;st = status
 	;ci = commit
