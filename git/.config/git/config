@@ -4,6 +4,8 @@
 [core]
 	filemode = true
 	editor = vim
+[init]
+	defaultBranch = master
 [merge]
 	tool = vimdiff
 [color]
