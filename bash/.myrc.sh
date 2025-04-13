@@ -28,5 +28,8 @@ bind '"\C-o":"clear && tput cup $(tput lines) 0\n"'
 # This operation won't overwrite existing files
 set -o noclobber # as well as set -C
 
+# Allow auto cd into a directory without using 'cd'
+shopt -s autocd
+
 # Set up thefuck
 eval $(thefuck --alias)
