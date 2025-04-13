@@ -33,8 +33,8 @@ let g:clang_complete_macros=1
 let g:clang_complete_patterns=1
 let g:clang_library_path='/usr/lib/llvm-14/lib/libclang.so.1'
 let g:clang_auto_user_options='.clang_complete, path, compile_commands.json'
-"let g:clang_jumpto_declaration_key="<C-[>"
-"let g:clang_jumpto_declaration_in_preview_key="<C-W>["
+let g:clang_jumpto_declaration_key="<C-[>"
+let g:clang_jumpto_declaration_in_preview_key="<C-W>["
 
 " Snippets
 let g:clang_snippets=1
