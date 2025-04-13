@@ -1,4 +1,4 @@
-" ~/.vim/autoload/cscope_setup.vim
+" ~/.vim/modules/cscope_setup.vim
 "
 " Ctags & Cscope Configuration
 function! cscope_setup#SetupCscope()
