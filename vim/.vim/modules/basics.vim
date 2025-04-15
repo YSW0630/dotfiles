@@ -89,8 +89,5 @@ augroup END
 " Remember Last Cursor Position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Add 'tags' and 'TAGS' files to Vim's tag lookup path.
-" This tells Vim to look for a 'tags' or 'TAGS' file in the current directory,
-" and then recursively upward toward the home directory (~).
-" Useful for navigating definitions across large projects.
-set tags=./tags;~,./TAGS;~
+" Recursively upward toward (included current directory) the root directory (/) to look for a 'tags' or 'TAGS' file.
+set tags=./tags;/,./TAGS;/,~/.vim/tags
