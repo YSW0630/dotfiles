@@ -89,5 +89,6 @@ augroup END
 " Remember Last Cursor Position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Recursively upward toward (included current directory) the root directory (/) to look for a 'tags' or 'TAGS' file.
-set tags=./tags;/,./TAGS;/,~/.vim/tags
+" Recursively upward toward (included current directory) the root directory (/)
+" However, I can use '$ vim .', then use nerdtree to nevigate
+"set tags=./tags;/,./TAGS;/,~/.vim/system.tags

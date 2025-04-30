@@ -11,6 +11,7 @@ alias lvl='echo $SHLVL'
 alias tty-clock='tty-clock -bsctC 6'
 alias fps='mangohud'
 alias diff='diff --color'
+alias fzfp='fzf --preview "batcat --color always {}"'
 alias :q='exit'
 alias :q!='exit'
 
