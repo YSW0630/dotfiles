@@ -14,6 +14,7 @@ Plug 'bfrg/vim-c-cpp-modern'
 Plug 'rhysd/vim-clang-format'
 Plug 'YSW0630/Shorter_clang_complete'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 " Clang-format
@@ -22,6 +23,9 @@ let g:clang_format#code_style="google"
 " MUcomplete
 let g:mucomplete#enable_auto_at_startup=0
 let g:mucomplete#completion_delay=0
+
+" Jedi-vim
+let g:jedi#popup_on_dot=0
 
 " Clang-complete 
  let g:clang_complete_auto=0
