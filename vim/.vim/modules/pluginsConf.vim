@@ -12,7 +12,7 @@ Plug 'honza/vim-snippets'
 Plug 'YSW0630/vim-cppman'
 Plug 'bfrg/vim-c-cpp-modern'
 Plug 'rhysd/vim-clang-format'
-Plug 'YSW0630/Shorter_clang_complete'
+Plug 'YSW0630/clang_complete'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'davidhalter/jedi-vim'
 call plug#end()

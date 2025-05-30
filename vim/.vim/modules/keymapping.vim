@@ -20,7 +20,7 @@ augroup compile_mapping
 	autocmd!
 	autocmd filetype *     nmap <F7> :term<cr>
 	autocmd filetype *     nmap <F8> :!clear<cr><cr>
-	autocmd filetype c     nmap <F9> :w <bar> !clang -std=gnu11 -lm % -o %:r<cr>
-	autocmd filetype cpp   nmap <F9> :w <bar> !clang++ -std=c++20 % -o %:r<cr>
+	autocmd filetype c     nmap <F9> :w <bar> !clang -DLOCAL -std=gnu11 -lm % -o %:r<cr>
+	autocmd filetype cpp   nmap <F9> :w <bar> !clang++ -DLOCAL -std=c++20 % -o %:r<cr>
 	autocmd filetype c,cpp nmap <F10> :!time ./%:r<cr>
 augroup END
