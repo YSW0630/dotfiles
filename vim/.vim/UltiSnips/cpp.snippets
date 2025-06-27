@@ -7,6 +7,14 @@ snippet fhead "Insert file header comment"
  */
 endsnippet
 
+snippet main "K&R Style"
+int main(int argc, char *argv[]) {
+	${0}
+	return 0;
+}
+
+endsnippet
+
 snippet cpf "Competitive programming format"
 #include <bits/stdc++.h>
 #define ll long long
@@ -20,13 +28,13 @@ snippet cpf "Competitive programming format"
 #define ep emplace
 #define F first
 #define S second
-#define endl '\n'
-#define put(x) cout << x << '\n'
+#define put(x) cout << x << "\n"
 #define all(v) v.begin(), v.end()
 #define MEM(x, n) memset(x, n, sizeof(x));
 #define lowbit(x) x & (-x)
 #define SZ(v) ((int)v.size())
-#ifdef LOCAL
+#ifndef LOCAL
+#define endl "\n"
 #pragma GCC optimize("Ofast,unroll-all-loops")
 #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #endif
