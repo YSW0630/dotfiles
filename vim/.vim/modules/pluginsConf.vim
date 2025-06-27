@@ -26,6 +26,7 @@ let g:mucomplete#completion_delay=0
 
 " Jedi-vim
 let g:jedi#popup_on_dot=0
+let g:jedi#show_call_signatures="0"
 
 " Clang-complete 
  let g:clang_complete_auto=0
