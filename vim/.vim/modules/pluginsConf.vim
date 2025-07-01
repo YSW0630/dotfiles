@@ -13,6 +13,8 @@ Plug 'YSW0630/vim-cppman'
 Plug 'bfrg/vim-c-cpp-modern'
 Plug 'rhysd/vim-clang-format'
 Plug 'YSW0630/clang_complete'
+Plug 'cdelledonne/vim-cmake'
+Plug 'richq/vim-cmake-completion'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'davidhalter/jedi-vim'
 call plug#end()
