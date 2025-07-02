@@ -1,1 +1,0 @@
-/home/pacfrog/.irssi/scripts/sound.pl
