@@ -1,5 +1,5 @@
 [general]
-import = ["/home/pacfrog/.config/alacritty/themes/catppuccin_mocha.toml"]
+import = ["/home/pacfrog/.config/alacritty/alacritty-theme/themes/catppuccin_mocha.toml"]
 
 [terminal.shell]
 program = "/usr/bin/zsh"
