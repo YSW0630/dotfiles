@@ -36,5 +36,10 @@ set -o noclobber # as well as set -C
 # Allow auto cd into a directory without using 'cd'
 shopt -s autocd
 
+# make a directory and cd into it
+function mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
 # Set up thefuck
 eval $(thefuck --alias)
