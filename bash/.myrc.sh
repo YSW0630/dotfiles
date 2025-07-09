@@ -10,6 +10,9 @@ ncal -3 -C
 # Export editor
 export EDITOR=vim
 
+# Export sbin directory
+export PATH=$PATH:/usr/sbin
+
 # Export colored man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
