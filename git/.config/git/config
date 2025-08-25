@@ -18,10 +18,10 @@
 	insteadOf = https://github.com/
 [alias]
   graph = log --graph --oneline --all --decorate --color
-	co = checkout
+	chk = checkout
 	st = status
 	br = branch
-	;ci = commit
+  co = commit
 	;df = diff
 	;pick = cherry-pick
 	;fp = format-patch
