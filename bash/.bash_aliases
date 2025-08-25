@@ -1,5 +1,8 @@
 # frog's aliases
-alias pwd='pwd && pwd | xclip -sel clipboard'
+
+# Warning: conflict with 'pwd -P'
+#alias pwd='pwd && pwd | xclip -sel clipboard'
+
 alias lsn='stat -c "%a %A %n"'
 alias fl='ranger'
 alias v='vim'
