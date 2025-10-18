@@ -114,3 +114,5 @@ fi
 
 # include my own configuration
 [ -f ~/.myrc.sh ] && source ~/.myrc.sh
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
