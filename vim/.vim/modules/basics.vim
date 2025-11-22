@@ -73,6 +73,9 @@ set sidescrolloff=0        " No side scrolling offset
 set undodir=~/.vim/undodir
 set undofile
 
+" Add some packs
+packadd termdebug
+
 " File Type Detection and Plugins
 filetype on                " Enable file type detection
 filetype plugin indent on  " Load file type plugins with indentation
