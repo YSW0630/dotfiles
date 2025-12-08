@@ -14,6 +14,7 @@ export EDITOR=vim
 export PATH=$PATH:/usr/sbin
 
 # Export colored man pages
+export GROFF_NO_SGR=1
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
