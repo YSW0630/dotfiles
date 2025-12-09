@@ -4,6 +4,3 @@
 [submodule "ranger/.config/ranger/plugins/ranger_devicons"]
 	path = ranger/.config/ranger/plugins/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons
-[submodule "vim/.vim/pack/themes/start/vim-code-dark"]
-	path = vim/.vim/pack/themes/start/vim-code-dark
-	url = git@github.com:tomasiser/vim-code-dark.git
