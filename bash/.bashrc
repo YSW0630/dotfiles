@@ -112,7 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # include my own configuration
 [ -f ~/.myrc.sh ] && source ~/.myrc.sh
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
