@@ -17,6 +17,10 @@ alias fps='mangohud'
 alias diff='diff --color'
 alias fzfp='fzf --preview "batcat --color always {}"'
 alias cman='man -M /usr/share/man/zh_TW'
+alias jctl="journalctl -p 3 -xb"
+alias bigfont="setfont ter-132b"
+alias regfont="setfont default8x16"
+alias tb="nc termbin.com 9999"
 alias :q='exit'
 alias :q!='exit'
 
