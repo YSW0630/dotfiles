@@ -10,50 +10,69 @@ Plug 'markonm/hlyank.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'YSW0630/vim-cppman'
 Plug 'bfrg/vim-c-cpp-modern'
-Plug 'rhysd/vim-clang-format'
-Plug 'YSW0630/clang_complete'
 Plug 'cdelledonne/vim-cmake'
-Plug 'richq/vim-cmake-completion'
+Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'davidhalter/jedi-vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 call plug#end()
-
-" Clang-format
-let g:clang_format#code_style="google"
 
 " MUcomplete
 let g:mucomplete#enable_auto_at_startup=0
 let g:mucomplete#completion_delay=0
 
-" Jedi-vim
-let g:jedi#popup_on_dot=0
-let g:jedi#show_call_signatures="0"
+" vim-lsp
+"set foldmethod=expr foldexpr=lsp#ui#vim#folding#foldexpr() foldtext=lsp#ui#vim#folding#foldtext()
+let g:lsp_preview_float=1
+let g:lsp_diagnostics_enabled=0
+let g:asyncomplete_auto_popup=0
+let g:asyncomplete_auto_completeopt=0
+let g:lsp_document_highlight_enabled=1
+let g:lsp_completion_documentation_enabled = 0
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" Clang-complete 
- let g:clang_complete_auto=0
- let g:clang_use_library=1
- let g:clang_auto_select=1
- let g:clang_close_preview=1
- let g:clang_complete_copen=1
- let g:clang_complete_macros=1
- let g:clang_complete_patterns=1
- let g:clang_library_path='/usr/lib/llvm-19/lib/libclang-19.so.1'
- let g:clang_auto_user_options='.clang_complete, path, compile_commands.json'
- let g:clang_jumpto_declaration_key="<C-[>"
- let g:clang_jumpto_declaration_in_preview_key="<C-W>["
+""" vim-lsp default configurations
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
-" Snippets
- let g:clang_snippets=1
- let g:clang_conceal_snippets=1
- let g:clang_trailing_placeholder=1
- let g:clang_complete_optional_args_in_snippets=1
- autocmd filetype c,cpp setlocal conceallevel=2    " hide concealed text completely unless replacement character is defined
- autocmd filetype c,cpp setlocal concealcursor=vin " conceal in insert (i), normal (n) and visual (v) modes
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+  " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+  au!
+  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+""" vim-lsp manually popup
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <c-j>
+  \ pumvisible() ? "\<c-n>" :
+  \ <SID>check_back_space() ? "\<c-j>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><c-k> pumvisible() ? "\<c-p>" : "\<c-h>"
