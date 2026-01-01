@@ -29,4 +29,4 @@ source $HOME/.vim/modules/commandsConf.vim
 
 " ========== My Custom Path ============================
 
-source $HOME/.vim/modules/myPath.vim
+"source $HOME/.vim/modules/myPath.vim

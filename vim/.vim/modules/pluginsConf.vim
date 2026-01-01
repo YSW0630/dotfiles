@@ -10,9 +10,11 @@ Plug 'markonm/hlyank.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'bfrg/vim-c-cpp-modern'
+Plug 'sheerun/vim-polyglot'
 Plug 'cdelledonne/vim-cmake'
-Plug 'rust-lang/rust.vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'YSW0630/vim-vscpp'
+Plug 'rhysd/vim-healthcheck'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'lifepillar/vim-mucomplete'
@@ -27,16 +29,18 @@ let g:mucomplete#enable_auto_at_startup=0
 let g:mucomplete#completion_delay=0
 
 " vim-lsp
-"set foldmethod=expr foldexpr=lsp#ui#vim#folding#foldexpr() foldtext=lsp#ui#vim#folding#foldtext()
 let g:lsp_preview_float=1
 let g:lsp_diagnostics_enabled=0
-let g:asyncomplete_auto_popup=0
+let g:asyncomplete_auto_popup=1
 let g:asyncomplete_auto_completeopt=0
 let g:lsp_document_highlight_enabled=1
-let g:lsp_completion_documentation_enabled = 0
+let g:lsp_completion_documentation_enabled=0
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"set foldmethod=expr
+  "\ foldexpr=lsp#ui#vim#folding#foldexpr()
+  "\ foldtext=lsp#ui#vim#folding#foldtext()
 
-""" vim-lsp default configurations
+" vim-lsp default configurations
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
