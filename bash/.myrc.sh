@@ -30,7 +30,10 @@ export MANPAGER="nvim +Man!"
 # export LESS_TERMCAP_ue=$'\e[0m'
 # export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-### Export golang path
+### Export Rust path
+export PATH="$HOME/.cargo/bin:$PATH"
+
+### Export Golang path
 export GOPATH=/opt/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
