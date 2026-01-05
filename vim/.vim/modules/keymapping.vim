@@ -17,10 +17,10 @@ inoremap <S-PageUp> <Esc>:m-2<CR>i
 inoremap <S-PageDown> <Esc>:m+<CR>i
 
 augroup compile_mapping
-	autocmd!
-	autocmd filetype *     nmap <F7> :term<cr>
-	autocmd filetype *     nmap <F8> :!clear<cr><cr>
-	autocmd filetype c     nmap <F9> :w <bar> !clang -DLOCAL -std=gnu11 -lm % -o %:r<cr>
-	autocmd filetype cpp   nmap <F9> :w <bar> !clang++ -DLOCAL -std=c++20 % -o %:r<cr>
-	autocmd filetype c,cpp nmap <F10> :!time ./%:r<cr>
+  autocmd!
+  autocmd FileType *     nnoremap <buffer> <F7>  :term<CR>
+  autocmd FileType *     nnoremap <buffer> <F8>  :!clear<CR><CR>
+  autocmd FileType c     nnoremap <buffer> <F9>  :w <bar> !clang -DLOCAL -std=gnu11 -lm % -o %:r<CR>
+  autocmd FileType cpp   nnoremap <buffer> <F9>  :w <bar> !clang++ -DLOCAL -std=c++20 % -o %:r<CR>
+  autocmd FileType c,cpp nnoremap <buffer> <F10> :!time ./%:r<CR>
 augroup END
