@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Alacritty (tmux)
+Comment=Alacritty terminal with tmux
+Exec=alacritty -e bash -lc 'tmux new-session -A -s main'
+Icon=/home/pacfrog/Pictures/tmux.svg
+Terminal=false
+Categories=System;TerminalEmulator;
+StartupNotify=true
+Keywords=terminal;tmux;console;shell;
