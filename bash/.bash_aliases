@@ -13,6 +13,7 @@ alias sl='sl -e'
 alias fd='fdfind'
 alias lvl='echo $SHLVL'
 alias tty-clock='tty-clock -bsctC 6'
+alias cava="TERM=xterm-256color cava"
 alias fps='mangohud'
 alias diff='diff --color'
 alias fzfp='fzf --preview "batcat --color always {}"'
