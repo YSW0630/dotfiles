@@ -2,7 +2,7 @@
 Type=Application
 Name=Alacritty (tmux)
 Comment=Alacritty terminal with tmux
-Exec=alacritty -e bash -lc 'tmux new-session -A -s main'
+Exec=alacritty -e bash -lc 'tmux'
 Icon=/home/pacfrog/Pictures/Tmux/terminal_logo.svg
 Terminal=false
 Categories=System;TerminalEmulator;
