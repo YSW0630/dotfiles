@@ -11,10 +11,10 @@ inoremap {<cr> {<cr>}<Esc>O
 inoremap {{ {
 
 " Shift Line Mappings
+"inoremap <c-k> <Esc>:m-2<CR>i
+"inoremap <c-j> <Esc>:m+<CR>i
 nnoremap <c-k> :m-2<CR>
 nnoremap <c-j> :m+<CR>
-inoremap <c-k> <Esc>:m-2<CR>i
-inoremap <c-j> <Esc>:m+<CR>i
 
 augroup compile_mapping
   autocmd!

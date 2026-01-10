@@ -1,20 +1,20 @@
-" Toggle NERDTree
+" === NERDTree ===
 nmap <leader>e :NERDTreeToggle<cr>
 
-" Toggle UndoTree
+" === UndoTree ===
 nmap <leader>T :UndotreeToggle<cr>
 
-" Toggle Tagbar
+" === Tagbar ===
 nmap <leader>t :TagbarToggle<cr>
 
-" Mapping fzf.vim
+" === fzf.vim ===
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>fc :Colors<cr>
 nnoremap <leader>fh :History<cr>
 
-" Mapping MUcomplete
+" === MUcomplete ===
 imap <c-n> <plug>(MUcompleteFwd)
 imap <c-p> <plug>(MUcompleteBwd)
 inoremap <silent> <plug>(MUcompleteFwdKey) <right>
@@ -22,15 +22,29 @@ imap <right> <plug>(MUcompleteCycFwd)
 inoremap <silent> <plug>(MUcompleteBwdKey) <left>
 imap <left> <plug>(MUcompleteCycBwd)
 
-" Find my-path.vim 
+" === Find my-path.vim ===
 nmap <leader>a :call AddMyPath#SourceMyPath()<cr>
 
-" asyncomplete.vim
-"inoremap <expr> <c-j>   pumvisible() ? "\<c-n>" : "\<c-j>"
-"inoremap <expr> <c-k>   pumvisible() ? "\<c-p>" : "\<c-k>"
+" === Asyncomplete.vim ===
+" Check if cursor is at whitespace or line start
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Manually trigger completion
+inoremap <silent><expr> <c-j>
+  \ pumvisible() ? "\<c-n>" :
+  \ <SID>check_back_space() ? "\<c-j>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><c-k> pumvisible() ? "\<c-p>" : "\<c-h>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
-" Ultisnips
+" Legacy auto-popup mappings (disabled, kept for reference)
+"inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+" === Ultisnips ===
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

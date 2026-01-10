@@ -24,16 +24,17 @@ Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 call plug#end()
 
-" MUcomplete
+" === MU-COMPLETE ===
 let g:mucomplete#enable_auto_at_startup=0
 let g:mucomplete#completion_delay=0
 
-" vim-lsp
+" === VIM-LSP ===
 let g:lsp_preview_float=1
 let g:lsp_diagnostics_enabled=0
 let g:asyncomplete_auto_popup=1
 let g:asyncomplete_auto_completeopt=0
-let g:lsp_document_highlight_enabled=1
+let g:lsp_document_highlight_enabled=0
+let g:lsp_settings_enable_suggestions=0
 let g:lsp_completion_documentation_enabled=0
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "set foldmethod=expr
@@ -55,8 +56,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer> ]g <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
-  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  nnoremap <buffer> <expr><c-down> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-up> lsp#scroll(-4)
 
   let g:lsp_format_sync_timeout = 1000
   autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
@@ -69,14 +70,3 @@ augroup lsp_install
   " call s:on_lsp_buffer_enabled only for languages that has the server registered.
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
-""" vim-lsp manually popup
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-inoremap <silent><expr> <c-j>
-  \ pumvisible() ? "\<c-n>" :
-  \ <SID>check_back_space() ? "\<c-j>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><c-k> pumvisible() ? "\<c-p>" : "\<c-h>"
