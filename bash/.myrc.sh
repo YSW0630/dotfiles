@@ -61,6 +61,13 @@ set -o noclobber # as well as set -C
 ### Allow auto cd into a directory without using 'cd'
 shopt -s autocd
 
+### Source all of my bash completion if exists
+if [ -d ~/.bash_completion.d ]; then
+  for f in ~/.bash_completion.d/*; do
+    . "$f"
+  done
+fi
+
 ### make a directory and cd into it
 function mkcd() {
   mkdir -p "$1" && cd "$1"
