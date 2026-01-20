@@ -14,6 +14,10 @@ nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>fc :Colors<cr>
 nnoremap <leader>fh :History<cr>
 
+" === Lsp Document Format ===
+nnoremap <buffer><Leader>F :LspDocumentFormat<cr>
+vnoremap <buffer><Leader>F :LspDocumentRangeFormat<cr>
+
 " === MUcomplete ===
 imap <c-n> <plug>(MUcompleteFwd)
 imap <c-p> <plug>(MUcompleteBwd)
