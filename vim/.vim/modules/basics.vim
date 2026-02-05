@@ -25,6 +25,7 @@ set hlsearch               " Highlight search results
 set incsearch              " Incremental search
 set lazyredraw             " Improves performance when running macros
 set mouse=a                " Enable mouse in all modes
+set ttymouse=xterm2        " Makes the mouse draggable in tmux
 
 " Editing and Indentation
 set autoindent             " Auto-indent new lines
