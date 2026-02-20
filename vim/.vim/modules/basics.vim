@@ -95,6 +95,10 @@ augroup END
 " Remember Last Cursor Position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Python highlighting
+let python_highlight_all=1
+let python_highlight_space_errors=0
+
 " Recursively upward toward (included current directory) the root directory (/)
 " However, I can use '$ vim .', then use nerdtree to nevigate
 "set tags=./tags;/,./TAGS;/,~/.vim/system.tags
