@@ -14,13 +14,6 @@ nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>fc :Colors<cr>
 nnoremap <leader>fh :History<cr>
 
-" === vim-smooth-scroll ===
-" The following 3 parameters: 'Distance', 'Duration', 'Speed'
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
-
 " === Lsp Document Format ===
 nnoremap <buffer><Leader>F :LspDocumentFormat<cr>
 vnoremap <buffer><Leader>F :LspDocumentRangeFormat<cr>
