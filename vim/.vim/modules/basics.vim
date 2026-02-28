@@ -17,7 +17,7 @@ set shell=/bin/bash        " Set shell to /bin/zsh
 " Completion Options
 set pumheight=10           " Set popup menu height for completion to 15 lines
 set complete+=kspell       " Use dictionary words with spell check"
-set completeopt=menu,menuone,noselect,preview "popup
+set completeopt=menu,menuone,preview "popup,noselect
 "set completepopup=height:10,width:60,highlight:Terminal
 
 " Cursor and Highlighting
@@ -98,6 +98,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Python highlighting
 let python_highlight_all=1
 let python_highlight_space_errors=0
+
+" Force all ASM files to be treated as NASM.
+autocmd BufRead,BufNewFile *.asm set filetype=nasm
 
 " Recursively upward toward (included current directory) the root directory (/)
 " However, I can use '$ vim .', then use nerdtree to nevigate
