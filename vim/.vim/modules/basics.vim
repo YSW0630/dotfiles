@@ -72,6 +72,11 @@ set virtualedit=block      " Allow free cursor movement in visual block mode
 set scrolloff=10           " Start scrolling 10 lines before edge
 set sidescrolloff=0        " No side scrolling offset
 
+" Character encoding
+set encoding=utf-8
+set fileencodings=utf-8,gb18030,gbk,big5,utf-bom
+set termencoding=utf-8
+
 " Undo Memory
 set undodir=~/.vim/undodir
 set undofile
