@@ -117,6 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(zoxide init --cmd cd bash)"
 
 # include my own configuration
 [ -f ~/.myrc.sh ] && source ~/.myrc.sh
