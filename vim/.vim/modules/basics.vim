@@ -65,7 +65,7 @@ set novisualbell           " Disable Visual flash
 set gdefault               " Global flag for substitutions
 set nostartofline          " Maintain cursor column when jumping
 set timeout                " Enable mapped sequence timeout
-set timeoutlen=400         " Timeout length in ms
+set timeoutlen=800         " Timeout length in ms
 set virtualedit=block      " Allow free cursor movement in visual block mode
 
 " Scrolling and View
@@ -104,7 +104,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let python_highlight_all=1
 let python_highlight_space_errors=0
 
-" Force all ASM files to be treated as NASM.
+" Force all assembly files to be treated as asm or nasm.
+autocmd BufRead,BufNewFile *.s set filetype=asm
 autocmd BufRead,BufNewFile *.asm set filetype=nasm
 
 " Recursively upward toward (included current directory) the root directory (/)

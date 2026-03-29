@@ -7,7 +7,7 @@ Plug 'preservim/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'markonm/hlyank.vim'
-Plug 'psliwka/vim-smoothie'
+"Plug 'psliwka/vim-smoothie'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -30,11 +30,12 @@ let g:mucomplete#completion_delay=0
 " === VIM-LSP ===
 let g:lsp_preview_float=1
 let g:lsp_diagnostics_enabled=0
-let g:asyncomplete_auto_popup=1
+let g:asyncomplete_auto_popup=0
 let g:asyncomplete_auto_completeopt=0
 let g:lsp_document_highlight_enabled=0
 let g:lsp_settings_enable_suggestions=0
 let g:lsp_completion_documentation_enabled=0
+let g:lsp_document_code_action_signs_enabled=0
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "set foldmethod=expr
   "\ foldexpr=lsp#ui#vim#folding#foldexpr()
@@ -45,15 +46,15 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-  nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> gs <plug>(lsp-document-symbol-search)
-  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-  nmap <buffer> gr <plug>(lsp-references)
-  nmap <buffer> gi <plug>(lsp-implementation)
-  nmap <buffer> gt <plug>(lsp-type-definition)
-  nmap <buffer> <leader>rn <plug>(lsp-rename)
-  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> <leader>ld <plug>(lsp-definition)
+  nmap <buffer> <leader>ls <plug>(lsp-document-symbol-search)
+  nmap <buffer> <leader>lS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> <leader>lr <plug>(lsp-references)
+  nmap <buffer> <leader>li <plug>(lsp-implementation)
+  nmap <buffer> <leader>lt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>lR <plug>(lsp-rename)
+  nmap <buffer> <leader>lp <plug>(lsp-previous-diagnostic)
+  nmap <buffer> <leader>ln <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
   nnoremap <buffer> <expr><pagedown> lsp#scroll(+4)
   nnoremap <buffer> <expr><pageup> lsp#scroll(-4)
