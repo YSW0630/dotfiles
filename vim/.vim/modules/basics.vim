@@ -74,7 +74,7 @@ set sidescrolloff=0        " No side scrolling offset
 
 " Character encoding
 set encoding=utf-8
-set fileencodings=utf-8,gb18030,gbk,big5,utf-bom
+set fileencodings=ucs-bom,utf-8,big5,gb18030,gbk,latin1
 set termencoding=utf-8
 
 " Undo Memory

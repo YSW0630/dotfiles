@@ -29,11 +29,13 @@ let g:mucomplete#completion_delay=0
 
 " === VIM-LSP ===
 let g:lsp_preview_float=1
-let g:lsp_diagnostics_enabled=0
 let g:asyncomplete_auto_popup=0
+let g:lsp_diagnostics_enabled=1
+let g:lsp_diagnostics_float_cursor=1
 let g:asyncomplete_auto_completeopt=0
 let g:lsp_document_highlight_enabled=0
 let g:lsp_settings_enable_suggestions=0
+let g:lsp_diagnostics_virtual_text_enabled=0
 let g:lsp_completion_documentation_enabled=0
 let g:lsp_document_code_action_signs_enabled=0
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
