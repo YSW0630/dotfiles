@@ -23,6 +23,7 @@ alias bigfont='setfont ter-132b'
 alias regfont='setfont default8x16'
 alias tb='nc termbin.com 9999'
 alias gr='cd "$(git rev-parse --show-toplevel)"'
+alias lg='lazygit'
 alias :q='exit'
 alias :q!='exit'
 
