@@ -37,7 +37,7 @@ let g:lsp_document_highlight_enabled=0
 let g:lsp_settings_enable_suggestions=0
 let g:lsp_diagnostics_virtual_text_enabled=0
 let g:lsp_completion_documentation_enabled=0
-let g:lsp_document_code_action_signs_enabled=0
+let g:lsp_document_code_action_signs_enabled=1
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "set foldmethod=expr
   "\ foldexpr=lsp#ui#vim#folding#foldexpr()
@@ -48,6 +48,7 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> <leader>la <plug>(lsp-code-action-float)
   nmap <buffer> <leader>ld <plug>(lsp-definition)
   nmap <buffer> <leader>ls <plug>(lsp-document-symbol-search)
   nmap <buffer> <leader>lS <plug>(lsp-workspace-symbol-search)
