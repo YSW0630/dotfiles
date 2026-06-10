@@ -7,6 +7,9 @@
 pfetch
 ncal -3 -C
 
+### Export user's binary
+export PATH="$HOME/.local/bin:$PATH"
+
 ### Export editor
 export EDITOR=vim
 
