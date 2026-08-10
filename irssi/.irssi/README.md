@@ -9,3 +9,10 @@ Ex.
 ```bash
 ln -s $HOME/.irssi/scripts/sound.pl $HOME/.irssi/scripts/autorun/sound.pl
 ```
+
+btw, `sound.pl` has a dependency package that you can install using the following command if you are using Debian/Ubuntu:
+
+```bash
+sudo apt update && sudo apt install sox libsox-fmt-all
+```
+
