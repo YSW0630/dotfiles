@@ -8,7 +8,7 @@ Ex.
 
 ```bash
 mkdir -p $HOME/.irssi/scripts/autorun
-ln -s $HOME/.irssi/scripts/sound.pl $HOME/.irssi/scripts/autorun/sound.pl
+ln -sf $HOME/.irssi/scripts/sound.pl $HOME/.irssi/scripts/autorun/sound.pl
 ```
 
 btw, `sound.pl` has a dependency package that you can install using the following command if you are using Debian/Ubuntu:
