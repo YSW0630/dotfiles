@@ -7,6 +7,7 @@ Because I can't find the installation script.
 Ex.
 
 ```bash
+mkdir -p $HOME/.irssi/scripts/autorun
 ln -s $HOME/.irssi/scripts/sound.pl $HOME/.irssi/scripts/autorun/sound.pl
 ```
 
