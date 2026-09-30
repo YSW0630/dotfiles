@@ -2,13 +2,13 @@
 let mapleader=" "
 
 " === NERDTree ===
-nmap <leader>e :NERDTreeToggle<cr>
+nnoremap <leader>e :NERDTreeToggle<cr>
 
 " === UndoTree ===
-nmap <leader>T :UndotreeToggle<cr>
+nnoremap <leader>T :UndotreeToggle<cr>
 
 " === Tagbar ===
-nmap <leader>t :TagbarToggle<cr>
+nnoremap <leader>t :TagbarToggle<cr>
 
 " === fzf.vim ===
 nnoremap <leader>ff :Files<cr>
@@ -22,15 +22,15 @@ nnoremap <Leader>lf :LspDocumentFormat<cr>
 vnoremap <Leader>lf :LspDocumentRangeFormat<cr>
 
 " === MUcomplete ===
-imap <c-n> <plug>(MUcompleteFwd)
-imap <c-p> <plug>(MUcompleteBwd)
+inoremap <c-n> <plug>(MUcompleteFwd)
+inoremap <c-p> <plug>(MUcompleteBwd)
 inoremap <silent> <plug>(MUcompleteFwdKey) <right>
-imap <right> <plug>(MUcompleteCycFwd)
+inoremap <right> <plug>(MUcompleteCycFwd)
 inoremap <silent> <plug>(MUcompleteBwdKey) <left>
-imap <left> <plug>(MUcompleteCycBwd)
+inoremap <left> <plug>(MUcompleteCycBwd)
 
 " === Find my-path.vim ===
-nmap <leader>a :call AddMyPath#SourceMyPath()<cr>
+nnoremap <leader>a :call AddMyPath#SourceMyPath()<cr>
 
 " === Asyncomplete.vim ===
 " Check if cursor is at whitespace or line start
